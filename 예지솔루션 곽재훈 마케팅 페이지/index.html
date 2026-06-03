@@ -1,0 +1,1902 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>곽재훈 · 퍼포먼스 마케터</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0a0a0a;
+  --dark:#1c1c1c;
+  --mid:#555;
+  --muted:#888;
+  --light:#bbb;
+  --border:#e8e8e8;
+  --bg:#ffffff;
+  --bg2:#f8f8f8;
+  --bg3:#f2f2f2;
+  --accent:#111;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--dark);line-height:1.6;font-size:15px;-webkit-font-smoothing:antialiased}
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,255,255,0.96);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 6%;height:60px;
+}
+.nav-logo{font-weight:900;font-size:15px;letter-spacing:0.06em;color:var(--black);text-decoration:none}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:0.04em;transition:color .2s}
+.nav-links a:hover{color:var(--black)}
+@media(max-width:680px){.nav-links{display:none}}
+
+/* ── HERO ── */
+.hero{
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:94vh;
+  border-bottom:1px solid var(--border);
+}
+.hero-img{
+  position:relative;overflow:hidden;
+}
+.hero-img img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center top;
+  display:block;
+}
+.hero-img-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to right, rgba(0,0,0,0.18) 0%, transparent 60%);
+}
+.hero-content{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:60px 6% 60px 5%;
+  border-left:1px solid var(--border);
+}
+.hero-eyebrow{
+  font-size:11px;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:20px;
+}
+.hero-name{
+  font-family:'Noto Serif KR',serif;
+  font-size:clamp(38px,5vw,64px);font-weight:700;
+  color:var(--black);line-height:1.1;
+  margin-bottom:6px;letter-spacing:-0.02em;
+}
+.hero-title{
+  font-size:16px;color:var(--muted);font-weight:300;
+  margin-bottom:32px;letter-spacing:0.04em;
+}
+.hero-desc{
+  font-size:15px;color:var(--mid);line-height:1.9;
+  margin-bottom:40px;word-break:keep-all;
+  max-width:420px;
+}
+.hero-desc strong{color:var(--black);font-weight:700}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px}
+.hero-tag{
+  font-size:11px;padding:5px 13px;
+  border:1px solid var(--border);color:var(--muted);
+  background:var(--bg2);letter-spacing:0.04em;
+}
+.hero-tag.on{background:var(--black);color:#fff;border-color:var(--black)}
+.hero-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border:1px solid var(--border);
+  margin-top:8px;
+}
+.hstat{
+  padding:18px 12px;text-align:center;
+  border-right:1px solid var(--border);
+}
+.hstat:last-child{border-right:none}
+.hstat-num{display:block;font-size:20px;font-weight:900;color:var(--black);letter-spacing:-0.02em}
+.hstat-label{font-size:10px;color:var(--muted);margin-top:3px;letter-spacing:0.04em}
+
+/* ── SECTION COMMON ── */
+section{padding:96px 6%;border-bottom:1px solid var(--border)}
+.sec-label{font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.sec-title{
+  font-family:'Noto Serif KR',serif;
+  font-size:clamp(22px,3vw,36px);font-weight:700;
+  color:var(--black);line-height:1.35;margin-bottom:14px;word-break:keep-all;
+}
+.sec-sub{font-size:14px;color:var(--muted);line-height:1.85;max-width:540px;word-break:keep-all;margin-bottom:56px}
+
+/* ── YEJI SECTION ── */
+.yeji-intro{
+  display:grid;grid-template-columns:1fr 1fr;gap:0;
+  border:1px solid var(--border);margin-bottom:40px;
+}
+.yeji-left{
+  padding:48px 44px;
+  background:var(--black);color:#fff;
+}
+.yeji-left h3{
+  font-family:'Noto Serif KR',serif;
+  font-size:22px;font-weight:700;color:#fff;
+  margin-bottom:20px;line-height:1.4;
+}
+.yeji-kpi-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:1px;
+  background:rgba(255,255,255,0.12);margin-bottom:28px;
+}
+.yeji-kpi{
+  background:rgba(255,255,255,0.05);
+  padding:18px 16px;
+}
+.yeji-kpi-num{font-size:24px;font-weight:900;color:#fff;display:block;letter-spacing:-0.02em}
+.yeji-kpi-label{font-size:11px;color:rgba(255,255,255,0.5);margin-top:4px;letter-spacing:0.04em}
+.yeji-badges{display:flex;flex-wrap:wrap;gap:6px}
+.yeji-badge{
+  font-size:16px;padding:6px 18px;
+  border:1px solid rgba(255,255,255,0.2);
+  color:rgba(255,255,255,0.7);
+}
+.yeji-right{
+  display:grid;grid-template-columns:1fr 1fr;
+  border-left:1px solid var(--border);
+}
+.yeji-award-img{
+  position:relative;overflow:hidden;
+  border-right:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.yeji-award-img:nth-child(2n){border-right:none}
+.yeji-award-img:nth-last-child(-n+2){border-bottom:none}
+.yeji-award-img img{
+  width:100%;height:360px;
+  object-fit:cover;display:block;
+  transition:transform .4s ease;
+}
+.yeji-award-img:hover img{transform:scale(1.04)}
+.yeji-award-caption{
+  padding:10px 12px;
+  font-size:11px;color:var(--muted);
+  background:var(--bg2);border-top:1px solid var(--border);
+  line-height:1.4;
+}
+
+/* ── MY ACHIEVEMENTS ── */
+.achieve-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border:1px solid var(--border);
+  margin-bottom:40px;
+}
+.achieve-card{
+  padding:32px 28px;
+  border-right:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  transition:background .2s;
+}
+.achieve-card:hover{background:var(--bg2)}
+.achieve-card:nth-child(3n){border-right:none}
+.achieve-card:nth-last-child(-n+3){border-bottom:none}
+.achieve-tag{
+  font-size:10px;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:12px;
+}
+.achieve-num{
+  font-size:32px;font-weight:900;color:var(--black);
+  letter-spacing:-0.03em;line-height:1;margin-bottom:8px;
+}
+.achieve-desc{font-size:13px;color:var(--mid);line-height:1.6;word-break:keep-all}
+
+.awards-photo-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;border:1px solid var(--border);
+}
+.award-photo-item{
+  position:relative;overflow:hidden;
+  border-right:1px solid var(--border);
+}
+.award-photo-item:last-child{border-right:none}
+.award-photo-item img{
+  width:100%;aspect-ratio:3/4;
+  object-fit:cover;display:block;
+  transition:transform .4s ease;
+  filter:grayscale(15%);
+}
+.award-photo-item:hover img{transform:scale(1.05);filter:grayscale(0%)}
+.award-photo-caption{
+  padding:10px 12px;
+  font-size:11px;color:var(--muted);
+  background:var(--bg2);
+  border-top:1px solid var(--border);
+  line-height:1.4;
+}
+
+/* ── RANK TABLE ── */
+.rank-wrap{
+  border:1px solid var(--border);
+  overflow:hidden;margin-bottom:40px;
+}
+.rank-header{
+  background:var(--black);color:#fff;
+  padding:20px 28px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.rank-header h3{font-size:14px;font-weight:700;letter-spacing:0.04em}
+.rank-header span{font-size:11px;color:rgba(255,255,255,0.5)}
+.rank-img{width:100%;display:block;border-top:1px solid var(--border)}
+
+/* ── CERTS ── */
+.cert-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border:1px solid var(--border);
+}
+.cert-item{
+  padding:32px 28px;
+  border-right:1px solid var(--border);
+  display:flex;flex-direction:column;gap:12px;
+}
+.cert-item:last-child{border-right:none}
+.cert-icon{
+  width:48px;height:48px;
+  background:var(--black);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:700;
+}
+.cert-item h4{font-size:15px;font-weight:700;color:var(--black)}
+.cert-item p{font-size:12px;color:var(--muted);line-height:1.6}
+.cert-date{
+  font-size:11px;color:var(--muted);
+  border-top:1px solid var(--border);
+  padding-top:10px;margin-top:auto;
+}
+
+/* ── FREELANCE / PARKGOLF ── */
+.work-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:0;
+  border:1px solid var(--border);
+}
+.work-item{
+  padding:44px 40px;
+  border-right:1px solid var(--border);
+}
+.work-item:last-child{border-right:none}
+.work-badge{
+  display:inline-block;
+  font-size:11px;padding:4px 12px;margin-bottom:20px;
+  border:1px solid var(--border);color:var(--muted);
+  letter-spacing:0.06em;
+}
+.work-item h3{
+  font-family:'Noto Serif KR',serif;
+  font-size:20px;font-weight:700;color:var(--black);
+  margin-bottom:16px;line-height:1.4;word-break:keep-all;
+}
+.work-item p{font-size:14px;color:var(--mid);line-height:1.8;word-break:keep-all;margin-bottom:20px}
+.work-metrics{display:flex;flex-direction:column;gap:8px}
+.work-metric{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:10px 14px;background:var(--bg2);border:1px solid var(--border);
+}
+.work-metric-label{font-size:12px;color:var(--muted)}
+.work-metric-val{font-size:13px;font-weight:700;color:var(--black)}
+.work-metric-val.highlight{color:#166534}
+
+/* ── CLOSING ── */
+.closing{
+  background:var(--black);color:#fff;
+  padding:80px 6%;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:40px;
+  border-bottom:none;
+}
+.closing-left h2{
+  font-family:'Noto Serif KR',serif;
+  font-size:clamp(24px,3vw,38px);font-weight:700;
+  color:#fff;line-height:1.4;margin-bottom:16px;word-break:keep-all;
+}
+.closing-left p{font-size:14px;color:rgba(255,255,255,0.55);line-height:1.8;max-width:480px;word-break:keep-all}
+.closing-right{flex-shrink:0}
+.closing-photo{
+  width:200px;height:280px;object-fit:cover;
+  object-position:center top;
+  border:2px solid rgba(255,255,255,0.15);
+  display:block;
+}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .hero-img{height:50vw;min-height:260px}
+  .yeji-intro{grid-template-columns:1fr}
+  .yeji-right{border-left:none;border-top:1px solid var(--border)}
+  .achieve-grid{grid-template-columns:1fr 1fr}
+  .achieve-card:nth-child(2n){border-right:none}
+  .achieve-card:nth-child(3n){border-right:1px solid var(--border)}
+  .awards-photo-grid{grid-template-columns:1fr 1fr}
+  .award-photo-item:nth-child(2n){border-right:none}
+  .cert-grid{grid-template-columns:1fr}
+  .cert-item{border-right:none;border-bottom:1px solid var(--border)}
+  .cert-item:last-child{border-bottom:none}
+  .work-grid{grid-template-columns:1fr}
+  .work-item{border-right:none;border-bottom:1px solid var(--border)}
+  .closing{flex-direction:column}
+}
+@media(max-width:600px){
+  .yt-channel-grid{grid-template-columns:repeat(2,1fr) !important}
+}
+@media(max-width:380px){
+  .yt-channel-grid{grid-template-columns:1fr 1fr !important}
+}
+
+/* ══════════════════════════════════════
+   디자인 개선 — 색상·패턴·카드 스타일
+══════════════════════════════════════ */
+
+/* 섹션 배경 교차 */
+section:nth-of-type(odd)  { background: var(--bg); }
+section:nth-of-type(even) { background: var(--bg2); }
+
+/* sec-label 포인트 컬러 */
+.sec-label { color: #2563eb; font-weight: 700; }
+
+/* achieve-card 상단 컬러 보더 + hover */
+.achieve-card {
+    border-top: 3px solid transparent;
+    transition: border-color .25s, background .25s, transform .2s;
+}
+.achieve-card:nth-child(1)  { border-top-color: #2563eb; }
+.achieve-card:nth-child(2)  { border-top-color: #16a34a; }
+.achieve-card:nth-child(3)  { border-top-color: #dc2626; }
+.achieve-card:nth-child(4)  { border-top-color: #9333ea; }
+.achieve-card:nth-child(5)  { border-top-color: #ea580c; }
+.achieve-card:nth-child(6)  { border-top-color: #0891b2; }
+.achieve-card:hover { transform: translateY(-3px); background: #fff; box-shadow: 0 8px 24px rgba(0,0,0,0.07); }
+
+/* achieve-num 포인트 컬러 */
+.achieve-card:nth-child(1) .achieve-num { color: #2563eb; }
+.achieve-card:nth-child(2) .achieve-num { color: #16a34a; }
+.achieve-card:nth-child(3) .achieve-num { color: #dc2626; }
+.achieve-card:nth-child(4) .achieve-num { color: #9333ea; }
+.achieve-card:nth-child(5) .achieve-num { color: #ea580c; }
+.achieve-card:nth-child(6) .achieve-num { color: #0891b2; }
+
+/* cert-icon 컬러 */
+.cert-item:nth-child(1) .cert-icon { background: #2563eb; }
+.cert-item:nth-child(2) .cert-icon { background: #16a34a; }
+.cert-item:nth-child(3) .cert-icon { background: #9333ea; }
+
+/* rank-header 그라데이션 */
+.rank-header { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }
+
+/* 이명수(곽재훈) 섹션 카드들 */
+#ms-results { background: #f8faff; }
+#ms-why     { background: #f0fdf4; }
+#ms-cases   { background: #fff7ed; }
+#ms-contact { background: #0a0a0a; }
+
+/* ms-results 플랫폼 라벨 컬러 */
+#ms-results p[style*="NAVER"]   { color: #03c75a; font-weight: 800; }
+#ms-results p[style*="ZIGZAG"]  { color: #ff5c8d; font-weight: 800; }
+#ms-results p[style*="COUPANG"] { color: #e8361a; font-weight: 800; }
+#ms-results p[style*="오늘의집"]{ color: #00c4b4; font-weight: 800; }
+
+/* ms-results BEFORE→AFTER 수치 컬러 강조 */
+#ms-results .achieve-num { color: #2563eb; }
+
+/* WHY ME 카드 상단 보더 */
+#ms-why > div > div:nth-child(1) { border-top: 3px solid #2563eb; }
+#ms-why > div > div:nth-child(2) { border-top: 3px solid #16a34a; }
+#ms-why > div > div:nth-child(3) { border-top: 3px solid #9333ea; }
+
+/* CASES 카드 왼쪽 보더 */
+#ms-cases > div > div:nth-child(1) { border-left: 4px solid #2563eb; }
+#ms-cases > div > div:nth-child(2) { border-left: 4px solid #ea580c; }
+#ms-cases > div > div:nth-child(3) { border-left: 4px solid #16a34a; }
+
+/* CONTACT CTA 배경 미묘한 그라데이션 */
+#ms-contact { background: linear-gradient(160deg, #0a0a0a 0%, #111827 100%); }
+
+/* 유튜브 채널 카드 hover */
+a[href*="youtube"] { transition: transform .2s, box-shadow .2s; }
+a[href*="youtube"]:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,0.08); }
+
+/* hero-stats 숫자 컬러 */
+.hstat-num { color: #2563eb; }
+
+/* yeji-left 그라데이션 */
+.yeji-left { background: linear-gradient(145deg, #111 0%, #1e293b 100%); }
+
+/* work-badge 포인트 */
+.work-badge { background: #eff6ff; border-color: #bfdbfe; color: #2563eb; }
+
+/* 스크롤바 */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #999; }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">퍼포먼스 마케터 곽재훈 페이지</a>
+  <ul class="nav-links">
+    <li><a href="#yeji">예지솔루션</a></li>
+    <li><a href="#achievements">성과</a></li>
+    <li><a href="#certs">자격증</a></li>
+    <li><a href="#freelance">프리랜서</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-img">
+    <img src="hero.jpg" alt="곽재훈 마케터 강연">
+    <div class="hero-img-overlay"></div>
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Performance Marketer · 8년차</p>
+    <h1 class="hero-name">곽재훈</h1>
+    <p class="hero-title">퍼포먼스 마케터</p>
+    <p class="hero-desc">
+      국내 탑 광고 대행사 <strong>예지솔루션</strong>에서 8년간<br>
+      네이버·카카오·쿠팡 및 각종 버티컬 매체를 직접 운영하며<br>
+      <strong>연간 광고집행액 40억+ 압도적 1위</strong> 및 영업 성과 최상위권을 유지했습니다.<br><br>
+      숫자로 증명된 마케터입니다.
+    </p>
+    <div class="hero-tags">
+      <span class="hero-tag on">예지솔루션 유일한 공식 프리랜서</span>
+      <span class="hero-tag">검색광고마케터 1급</span>
+      <span class="hero-tag">SNS마케터 1급</span>
+      <span class="hero-tag">구글 GAIQ</span>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat">
+        <span class="hstat-num">8년차</span>
+        <p class="hstat-label">현장 8년차</p>
+      </div>
+      <div class="hstat">
+        <span class="hstat-num">40억+</span>
+        <p class="hstat-label">연간 집행액</p>
+      </div>
+      <div class="hstat">
+        <span class="hstat-num">1위</span>
+        <p class="hstat-label">사내 매출 순위</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── YEJI SOLUTION ── -->
+<section id="yeji">
+  <p class="sec-label">BACKGROUND</p>
+  <h2 class="sec-title">국내 최정상 광고 대행사,<br>예지솔루션에서 8년</h2>
+  <p class="sec-sub">단순히 경력을 쌓은 게 아닙니다. 직원 200여 명, 연매출 900억의 공식 대행사에서 현장의 최전선을 경험했습니다.</p>
+
+  <div class="yeji-intro">
+    <div class="yeji-left">
+      <h3>예지솔루션은<br>이런 회사입니다</h3>
+      <div class="yeji-kpi-grid">
+        <div class="yeji-kpi">
+          <span class="yeji-kpi-num">200+</span>
+          <p class="yeji-kpi-label">임직원 수</p>
+        </div>
+        <div class="yeji-kpi">
+          <span class="yeji-kpi-num">900억</span>
+          <p class="yeji-kpi-label">연 매출</p>
+        </div>
+        <div class="yeji-kpi">
+          <span class="yeji-kpi-num">10+</span>
+          <p class="yeji-kpi-label">공식 대행 매체</p>
+        </div>
+        <div class="yeji-kpi">
+          <span class="yeji-kpi-num">TOP</span>
+          <p class="yeji-kpi-label">네이버 프리미어</p>
+        </div>
+      </div>
+      <div class="yeji-badges">
+        <span class="yeji-badge">네이버 공식대행사</span>
+        <span class="yeji-badge">카카오 공식대행사</span>
+        <span class="yeji-badge">쿠팡 공식대행사</span>
+        <span class="yeji-badge">네이버 프리미어 파트너</span>
+        <span class="yeji-badge">지그재그 프리미어 에이전시</span>
+        <span class="yeji-badge">에이블리 우수대행사</span>
+        <span class="yeji-badge">지마켓 공식대행사</span>
+        <span class="yeji-badge">구글 파트너사</span>
+        <span class="yeji-badge">11번가 공식대행사</span>
+        <span class="yeji-badge">오늘의집 공식대행사</span>
+        <span class="yeji-badge">지그재그 광고 효율 퍼포먼스 TOP5</span>
+        <span class="yeji-badge">지그재그 신규 광고주 케어 부문 TOP3</span>
+        <span class="yeji-badge">ABLY 우수대행사 선정 (2023~ 4년연속)</span>
+        <span class="yeji-badge">네이버 프리미어 대행사 선정 (2025~ 2년연속)</span>
+        <span class="yeji-badge">지그재그 프리미어 에이전시 (2024~ 3년연속)</span>
+        <span class="yeji-badge">4910 공식대행 계약</span>
+        <span class="yeji-badge">CJ온스타일 공식대행 계약</span>
+      </div>
+    </div>
+    <div class="yeji-right">
+      <div class="yeji-award-img">
+        <img src="award_naver_premier.png" alt="2026 네이버 프리미어 파트너사 선정">
+        <div class="yeji-award-caption">2026 네이버 프리미어 파트너사 선정</div>
+      </div>
+      <div class="yeji-award-img">
+        <img src="award_zigzag_premier.jpg" alt="2024 지그재그 프리미어 에이전시">
+        <div class="yeji-award-caption">2024·2025 지그재그 프리미어 에이전시</div>
+      </div>
+      <div class="yeji-award-img">
+        <img src="award_zigzag_perf.jpg" alt="지그재그 광고 효율 퍼포먼스 TOP5">
+        <div class="yeji-award-caption">지그재그 광고 효율 퍼포먼스 TOP5</div>
+      </div>
+      <div class="yeji-award-img">
+        <img src="award_best_promotion.jpg" alt="지그재그 신규 광고주 케어 부문 TOP3">
+        <div class="yeji-award-caption">지그재그 신규 광고주 케어 부문 TOP3</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 추가 수상 이미지들 -->
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border:1px solid var(--border);border-top:none">
+    <div style="border-right:1px solid var(--border);overflow:hidden">
+      <img src="award_zigzag_care.png" alt="지그재그 신규광고주 케어 TOP3" style="width:100%;height:420px;object-fit:cover;display:block">
+      <div class="yeji-award-caption">지그재그 신규 광고주 케어 부문 TOP3</div>
+    </div>
+    <div style="border-right:1px solid var(--border);overflow:hidden">
+      <img src="award_ably.jpg" alt="에이블리 우수대행사 선정" style="width:100%;height:420px;object-fit:cover;display:block">
+      <div class="yeji-award-caption">에이블리 우수대행사 선정</div>
+    </div>
+    <div style="overflow:hidden">
+      <img src="award_ably2026.png" alt="2026 에이블리 우수대행사" style="width:100%;height:420px;object-fit:cover;display:block">
+      <div class="yeji-award-caption">2026 에이블리 우수대행사 선정</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ACHIEVEMENTS ── -->
+<section id="achievements">
+  <p class="sec-label">ACHIEVEMENTS</p>
+  <h2 class="sec-title">숫자로 증명한<br>8년의 기록</h2>
+  <p class="sec-sub">각종 프로모션 성과 최상위권 유지, 연간 시상식 주요 부문 수상. 모든 성과는 실제 데이터 기반입니다.</p>
+
+  <div class="achieve-grid">
+    <div class="achieve-card">
+      <p class="achieve-tag">ANNUAL AD SPEND</p>
+      <p class="achieve-num">40억+</p>
+      <p class="achieve-desc">연간 광고집행액 기준 사내 압도적 1위 달성</p>
+    </div>
+    <div class="achieve-card">
+      <p class="achieve-tag">SALES RANKING</p>
+      <p class="achieve-num">#1</p>
+      <p class="achieve-desc">프로모션 영업 성과 기준 솔루션 TOP10 매출 1위 달성</p>
+    </div>
+    <div class="achieve-card">
+      <p class="achieve-tag">AWARDS</p>
+      <p class="achieve-num">다수</p>
+      <p class="achieve-desc">라이징 스타, Excellent Staff, BEST PROMOTION, HO캉스 성과우수자 등 연간 시상식 주요 부문 수상.</p>
+    </div>
+    <div class="achieve-card">
+      <p class="achieve-tag">EDUCATION</p>
+      <p class="achieve-num">교육 담당</p>
+      <p class="achieve-desc">신규 수습사원 교육 담당자로서 실무 지식 전달 및 온보딩 프로세스 운영.</p>
+    </div>
+    <div class="achieve-card">
+      <p class="achieve-tag">TASK FORCE</p>
+      <p class="achieve-num">TF팀</p>
+      <p class="achieve-desc">버티컬 매체 TF팀 운영을 통해 신규 매체 확장 및 운영 체계 구축에 기여.</p>
+    </div>
+    <div class="achieve-card">
+      <p class="achieve-tag">FREELANCER</p>
+      <p class="achieve-num">유일</p>
+      <p class="achieve-desc">현재 예지솔루션의 유일한 공식 프리랜서로 활동 중. 신뢰와 실력으로 만든 포지션.</p>
+    </div>
+  </div>
+
+  <!-- 수상 사진 갤러리 -->
+  <div class="awards-photo-grid">
+    <div class="award-photo-item">
+      <img src="dd.png" alt="BEST PROMOTION 수상" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:left top;display:block;transition:transform .4s ease;filter:grayscale(15%)">
+      <div class="award-photo-caption">사내 프로모션 1위 달성</div>
+    </div>
+    <div class="award-photo-item">
+      <img src="awards_ceremony.jpg" alt="2019 FL.Y Awards 라이징 스타">
+      <div class="award-photo-caption">2019 FL.Y Awards 라이징 스타 수상</div>
+    </div>
+    <div class="award-photo-item">
+      <img src="award_excellent.jpg" alt="Excellent Staff 2022">
+      <div class="award-photo-caption">HO캉스 프로모션 성과우수자 선정</div>
+    </div>
+    <div class="award-photo-item">
+      <img src="award_hocance.jpg" alt="HO캉스 프로모션 성과우수자" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block">
+      <div class="award-photo-caption">Excellent Staff 2022 수상</div>
+    </div>
+  </div>
+  <!-- 추가 수상 사진 갤러리 -->
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-top:none">
+    <div style="overflow:hidden;border-right:1px solid var(--border)">
+      <img src="extra1.png" alt="오그레맨 수상" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;transition:transform .4s">
+      <div style="padding:10px 12px;font-size:11px;color:var(--muted);background:var(--bg2);border-top:1px solid var(--border)">제13대 오그레맨 수상</div>
+    </div>
+    <div style="overflow:hidden;border-right:1px solid var(--border)">
+      <img src="extra2.jpg" alt="라이징 스타 트로피" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;transition:transform .4s">
+      <div style="padding:10px 12px;font-size:11px;color:var(--muted);background:var(--bg2);border-top:1px solid var(--border)">2019 라이징 스타 트로피</div>
+    </div>
+    <div style="overflow:hidden;border-right:1px solid var(--border)">
+      <img src="extra3.jpg" alt="라이징 스타 트로피 클로즈업" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;transition:transform .4s">
+      <div style="padding:10px 12px;font-size:11px;color:var(--muted);background:var(--bg2);border-top:1px solid var(--border)">라이징 스타 · 곽재훈 사원</div>
+    </div>
+    <div style="overflow:hidden">
+      <img src="extra4.png" alt="수상 모음" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;transition:transform .4s">
+      <div style="padding:10px 12px;font-size:11px;color:var(--muted);background:var(--bg2);border-top:1px solid var(--border)">각종 수상 모음</div>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-top:none">
+    <div style="overflow:hidden;border-right:1px solid var(--border)">
+      <img src="extra5.jpg" alt="수상 및 명찰" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;transition:transform .4s">
+      <div style="padding:10px 12px;font-size:11px;color:var(--muted);background:var(--bg2);border-top:1px solid var(--border)">승급 및 수상 기록</div>
+    </div>
+    <div style="overflow:hidden;border-right:1px solid var(--border)">
+      <img src="extra6.png" alt="성과 TOP10 및 수상" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:left center;display:block;transition:transform .4s">
+      <div style="padding:10px 12px;font-size:11px;color:var(--muted);background:var(--bg2);border-top:1px solid var(--border)">솔루션 TOP10 · BEST PROMOTION</div>
+    </div>
+    <div style="overflow:hidden;border-right:1px solid var(--border)">
+      <img src="extra7.jpg" alt="BEST PROMOTION 수상" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;transition:transform .4s">
+      <div style="padding:10px 12px;font-size:11px;color:var(--muted);background:var(--bg2);border-top:1px solid var(--border)">BEST PROMOTION BEST YES m & r 수상</div>
+    </div>
+    <div style="overflow:hidden">
+      <img src="extra8.png" alt="궁금한 톱스타" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;transition:transform .4s">
+      <div style="padding:10px 12px;font-size:11px;color:var(--muted);background:var(--bg2);border-top:1px solid var(--border)">궁금한 톱스타 수상</div>
+    </div>
+  </div>
+
+  <!-- ON:AIR 강의 -->
+  <div style="margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border)">
+    <div style="padding:36px 36px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--border)">
+      <p style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px">CONTENT · EDUCATION</p>
+      <h3 style="font-family:'Noto Serif KR',serif;font-size:20px;font-weight:700;color:var(--black);margin-bottom:12px;line-height:1.4">사내 교육 콘텐츠 제작<br>및 강의 진행</h3>
+      <p style="font-size:13px;color:var(--mid);line-height:1.8;word-break:keep-all">영업부 셀장 및 주요 TF팀 팀장으로 참여.</p>
+    </div>
+    <div style="overflow:hidden">
+      <img src="onair.png" alt="ON:AIR 강의 마케터의 역할" style="width:100%;height:100%;object-fit:cover;min-height:300px;display:block">
+    </div>
+  </div>
+</section>
+
+<!-- ── CERTIFICATIONS ── -->
+<section id="certs">
+  <p class="sec-label">CERTIFICATIONS</p>
+  <h2 class="sec-title">자격증으로<br>검증된 전문성</h2>
+  <p class="sec-sub">현장 경험에 공식 자격증이 더해졌습니다.</p>
+
+  <div class="cert-grid">
+    <div class="cert-item">
+      <div class="cert-icon">검색</div>
+      <h4>검색광고마케터 1급</h4>
+      <p>한국정보통신진흥협회(KAIT) 인증. 검색 광고 기획·운영·분석의 최상위 민간 자격.</p>
+      <p class="cert-date">취득일 · 2020년 12월 31일 · SMF-2003-001401</p>
+    </div>
+    <div class="cert-item">
+      <div class="cert-icon">SNS</div>
+      <h4>SNS광고마케터 1급</h4>
+      <p>한국정보통신진흥협회(KAIT) 인증. 소셜 광고 기획·운영 최상위 민간 자격.</p>
+      <p class="cert-date">취득일 · 2022년 09월 16일 · SNS-2202-000921</p>
+    </div>
+    <div class="cert-item">
+      <div class="cert-icon">GA</div>
+      <h4>구글 GAIQ 수료</h4>
+      <p>Google 공식 애널리틱스 자격. 데이터 기반 광고 성과 측정 및 분석 역량 공인.</p>
+      <p class="cert-date">Google Analytics Individual Qualification</p>
+    </div>
+  </div>
+
+  <!-- 자격증 사진 -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border);border-top:none;margin-top:0">
+    <div style="border-right:1px solid var(--border);overflow:hidden">
+      <img src="cert_search.jpg" alt="검색광고마케터 1급 합격확인서" style="width:100%;display:block">
+    </div>
+    <div style="overflow:hidden">
+      <img src="cert_sns.jpg" alt="SNS광고마케터 1급 합격확인서" style="width:100%;display:block">
+    </div>
+  </div>
+</section>
+
+<!-- ── FREELANCE & PARKGOLF ── -->
+<section id="freelance">
+  <p class="sec-label">CURRENT WORK</p>
+  <h2 class="sec-title">마케팅 분야의 올인원 서비스 제공</h2>
+  <p class="sec-sub">공식 광고 영역부터 퍼포먼스마케팅, 그리고 바이럴 영역까지 역량을 확대하였습니다.</p>
+
+  <div class="work-grid">
+    <div class="work-item">
+      <span class="work-badge">FREELANCER · 현재진행중</span>
+      <h3>예지솔루션<br>유일한 공식 프리랜서</h3>
+      <p>8년간의 신뢰와 성과가 만들어낸 포지션입니다. 현재 예지솔루션에서 공식 인정한 단 한 명의 프리랜서로, 지금도 현장에서 광고 운영을 이어가고 있습니다.</p>
+      <div class="work-metrics">
+        <div class="work-metric">
+          <span class="work-metric-label">포지션</span>
+          <span class="work-metric-val">사내 유일 공식 프리랜서</span>
+        </div>
+        <div class="work-metric">
+          <span class="work-metric-label">운영 매체</span>
+          <span class="work-metric-val">네이버 · 카카오 · 쿠팡 · 지그재그</span>
+        </div>
+        <div class="work-metric">
+          <span class="work-metric-label">상태</span>
+          <span class="work-metric-val highlight">현재 활동중</span>
+        </div>
+      </div>
+    </div>
+    <div class="work-item">
+      <span class="work-badge">PRODUCTION · 제작 역량</span>
+      <h3>영상 · 바이럴 · 홈페이지<br>기획부터 제작까지 직접</h3>
+      <p>광고 운영에 그치지 않고, 콘텐츠 제작과 온라인 환경 구축까지 직접 실행합니다. 영상 제작, 바이럴 콘텐츠 기획, 홈페이지 제작을 모두 원스톱으로 진행할 수 있어 외주 없이 빠르게 움직입니다.</p>
+      <div class="work-metrics">
+        <div class="work-metric">
+          <span class="work-metric-label">영상 제작</span>
+          <span class="work-metric-val">기획 · 촬영 · 편집 · 유튜브/SNS 업로드</span>
+        </div>
+        <div class="work-metric">
+          <span class="work-metric-label">바이럴 콘텐츠</span>
+          <span class="work-metric-val">블로그 · 카페 · SNS 채널 운영 및 확산</span>
+        </div>
+        <div class="work-metric">
+          <span class="work-metric-label">홈페이지 제작</span>
+          <span class="work-metric-val">랜딩페이지 · 소개페이지 직접 구축</span>
+        </div>
+        <div class="work-metric">
+          <span class="work-metric-label">강점</span>
+          <span class="work-metric-val highlight">기획 · 제작 · 운영 원스톱 가능</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 유튜브 채널 목록 -->
+  <div style="margin-top:56px;border:1px solid var(--border);border-radius:4px;padding:52px 6%;background:var(--bg2)">
+    <div style="text-align:center;margin-bottom:48px">
+      <p style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:16px">YOUTUBE CHANNELS</p>
+      <h3 style="font-family:'Noto Serif KR',serif;font-size:clamp(20px,3vw,36px);font-weight:700;color:var(--black);line-height:1.2;margin-bottom:14px">
+        쇼핑/엔터 유튜브 채널 목록
+      </h3>
+      <p style="font-size:14px;color:var(--mid);letter-spacing:0.02em">구독자 1만 + 평균 조회수 1만 채널 직접 운영중</p>
+    </div>
+
+    <div class="yt-channel-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;max-width:960px;margin:0 auto;border:1px solid var(--border);background:var(--border)">
+
+      <div style="background:var(--bg);padding:36px 20px 28px;text-align:center">
+        <div style="width:72px;height:72px;border-radius:50%;background:var(--bg3);margin:0 auto 20px;overflow:hidden;border:1px solid var(--border)">
+          <img src="트렌드포스트_로고.png" alt="트렌드포스트" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <p style="font-size:15px;font-weight:700;color:var(--black);margin-bottom:10px;letter-spacing:-0.01em">트렌드포스트</p>
+        <a href="https://www.youtube.com/channel/UCQsyXlt09Buw6KWcYLLNFmw" target="_blank" style="font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:0.02em">YouTube 채널 바로가기 →</a>
+      </div>
+
+      <div style="background:var(--bg);padding:36px 20px 28px;text-align:center">
+        <div style="width:72px;height:72px;border-radius:50%;background:var(--bg3);margin:0 auto 20px;overflow:hidden;border:1px solid var(--border)">
+          <img src="더리스트_로고.png" alt="더리스트" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <p style="font-size:15px;font-weight:700;color:var(--black);margin-bottom:10px;letter-spacing:-0.01em">더리스트</p>
+        <a href="https://www.youtube.com/channel/UC6UhdBimC-heA_J7_5JAiyQ" target="_blank" style="font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:0.02em">YouTube 채널 바로가기 →</a>
+      </div>
+
+      <div style="background:var(--bg);padding:36px 20px 28px;text-align:center">
+        <div style="width:72px;height:72px;border-radius:50%;background:var(--bg3);margin:0 auto 20px;overflow:hidden;border:1px solid var(--border)">
+          <img src="팝업매거진_로고.png" alt="팝업매거진" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <p style="font-size:15px;font-weight:700;color:var(--black);margin-bottom:10px;letter-spacing:-0.01em">팝업매거진</p>
+        <a href="https://www.youtube.com/channel/UC6mL-J29dWe4kVzUeCgCFjQ" target="_blank" style="font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:0.02em">YouTube 채널 바로가기 →</a>
+      </div>
+
+      <div style="background:var(--bg);padding:36px 20px 28px;text-align:center">
+        <div style="width:72px;height:72px;border-radius:50%;background:var(--bg3);margin:0 auto 20px;overflow:hidden;border:1px solid var(--border)">
+          <img src="데일리플로우_로고.png" alt="데일리플로우" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <p style="font-size:15px;font-weight:700;color:var(--black);margin-bottom:10px;letter-spacing:-0.01em">데일리플로우</p>
+        <a href="https://www.youtube.com/channel/UCQQ-EBvtlrdDnPwrSWmAL7g" target="_blank" style="font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:0.02em">YouTube 채널 바로가기 →</a>
+      </div>
+
+      <div style="background:var(--bg);padding:36px 20px 28px;text-align:center">
+        <div style="width:72px;height:72px;border-radius:50%;background:var(--bg3);margin:0 auto 20px;overflow:hidden;border:1px solid var(--border)">
+          <img src="하이프픽_로고.png" alt="하이프픽" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <p style="font-size:15px;font-weight:700;color:var(--black);margin-bottom:10px;letter-spacing:-0.01em">하이프픽</p>
+        <a href="https://www.youtube.com/channel/UCtkUT3heJRWJVFemmK-XrZQ" target="_blank" style="font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:0.02em">YouTube 채널 바로가기 →</a>
+      </div>
+
+      <div style="background:var(--bg);padding:36px 20px 28px;text-align:center">
+        <div style="width:72px;height:72px;border-radius:50%;background:var(--bg3);margin:0 auto 20px;overflow:hidden;border:1px solid var(--border)">
+          <img src="줌인_로고.png" alt="줌인" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <p style="font-size:15px;font-weight:700;color:var(--black);margin-bottom:10px;letter-spacing:-0.01em">줌인</p>
+        <a href="https://www.youtube.com/channel/UCkypnzXpl5OSZeaFltJWllA" target="_blank" style="font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:0.02em">YouTube 채널 바로가기 →</a>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════
+     곽재훈 마케터 · YEJI SOLUTION 섹션들
+     (출처: yeji-solution.github.io)
+══════════════════════════════════════════════ -->
+
+<!-- RESULTS : 숫자만이 아닙니다 -->
+<section id="ms-results" style="padding:96px 6%;border-bottom:1px solid #e8e8e8;background:#f7f8fc">
+  <p class="sec-label">RESULTS · 곽재훈 마케터</p>
+  <h2 class="sec-title">숫자만이 아닙니다.<br>어떻게 만들었는지도 공개합니다.</h2>
+  <p class="sec-sub">직접 운영하며 달성한 실측 데이터입니다.<br>각 케이스마다 어떤 접근으로 성과를 끌어올렸는지 함께 담았습니다.</p>
+
+  
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+    <span style="font-size:11px;font-weight:800;padding:4px 12px;border-radius:4px;background:#03c75a;color:#fff;letter-spacing:0.04em">NAVER</span>
+    <span style="font-size:14px;font-weight:600;color:#444">네이버 검색광고</span>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-bottom:48px">
+    
+    <div style="background:#fff;border-radius:12px;border:1px solid #e8e8e8;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 28px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.06)'">
+      <div style="height:4px;background:#03c75a"></div>
+      <div style="padding:24px 24px 20px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font-size:11px;font-weight:800;padding:3px 8px;border-radius:4px;background:#03c75a;color:#fff">NAVER</span>
+            <span style="font-size:11px;color:#aaa">헬스·스포츠용품</span>
+          </div>
+          <span style="font-size:11px;color:#bbb">2025 하반기</span>
+        </div>
+        <p style="font-size:14px;font-weight:700;color:#111;line-height:1.5;margin-bottom:14px">광고 그룹 구조 재설계로<br>ROAS 596% → 1,009% 달성</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px"><span style="font-size:11px;padding:3px 9px;border-radius:3px;background:#e8fdf2;color:#03c75a;font-weight:600">광고그룹 재설계</span><span style="font-size:11px;padding:3px 9px;border-radius:3px;background:#e8fdf2;color:#03c75a;font-weight:600">고전환 상품 집중</span><span style="font-size:11px;padding:3px 9px;border-radius:3px;background:#e8fdf2;color:#03c75a;font-weight:600">입찰 골든존</span></div>
+        <div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #f0f0f0">
+        <span style="font-size:12px;color:#888">ROAS</span>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:12px;color:#bbb">596%</span>
+          <span style="font-size:12px;color:#444">→</span>
+          <span style="font-size:13px;font-weight:800;color:#111">1,009%</span>
+          <span style="font-size:11px;font-weight:700;color:#fff;background:#03c75a;padding:2px 7px;border-radius:3px">+69%</span>
+        </div>
+      </div></div>
+        
+      <div style="margin-top:20px;border-top:1px solid #eee;padding-top:18px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <span style="font-size:10px;color:#999;width:40px;flex-shrink:0">전</span>
+          <div style="flex:1;background:#eee;border-radius:2px;height:7px;overflow:hidden">
+            <div style="width:37%;height:100%;background:#ccc;border-radius:2px"></div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <span style="font-size:10px;color:#999;width:40px;flex-shrink:0">후</span>
+          <div style="flex:1;background:#eee;border-radius:2px;height:7px;overflow:hidden">
+            <div style="width:63%;height:100%;background:#03c75a;border-radius:2px"></div>
+          </div>
+        </div>
+      </div>
+        
+      </div>
+    </div>
+    
+    <div style="background:#fff;border-radius:12px;border:1px solid #e8e8e8;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 28px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.06)'">
+      <div style="height:4px;background:#03c75a"></div>
+      <div style="padding:24px 24px 20px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font-size:11px;font-weight:800;padding:3px 8px;border-radius:4px;background:#03c75a;color:#fff">NAVER</span>
+            <span style="font-size:11px;color:#aaa">건강기능식품</span>
+          </div>
+          <span style="font-size:11px;color:#bbb">2025년</span>
+        </div>
+        <p style="font-size:14px;font-weight:700;color:#111;line-height:1.5;margin-bottom:14px">동일 예산에서 ROAS 2배,<br>전환매출 2.41억 → 6.56억</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px"><span style="font-size:11px;padding:3px 9px;border-radius:3px;background:#e8fdf2;color:#03c75a;font-weight:600">키워드 집중 배분</span><span style="font-size:11px;padding:3px 9px;border-radius:3px;background:#e8fdf2;color:#03c75a;font-weight:600">소재 A/B 테스트</span><span style="font-size:11px;padding:3px 9px;border-radius:3px;background:#e8fdf2;color:#03c75a;font-weight:600">품질지수 개선</span></div>
+        <div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #f0f0f0">
+        <span style="font-size:12px;color:#888">ROAS</span>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:12px;color:#bbb">336%</span>
+          <span style="font-size:12px;color:#444">→</span>
+          <span style="font-size:13px;font-weight:800;color:#111">653%</span>
+          <span style="font-size:11px;font-weight:700;color:#fff;background:#03c75a;padding:2px 7px;border-radius:3px">+94%</span>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #f0f0f0">
+        <span style="font-size:12px;color:#888">전환매출</span>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:12px;color:#bbb">2.41억</span>
+          <span style="font-size:12px;color:#444">→</span>
+          <span style="font-size:13px;font-weight:800;color:#111">6.56억</span>
+          <span style="font-size:11px;font-weight:700;color:#fff;background:#03c75a;padding:2px 7px;border-radius:3px">+172%</span>
+        </div>
+      </div></div>
+        
+      <div style="margin-top:20px;border-top:1px solid #eee;padding-top:18px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <span style="font-size:10px;color:#999;width:40px;flex-shrink:0">전</span>
+          <div style="flex:1;background:#eee;border-radius:2px;height:7px;overflow:hidden">
+            <div style="width:22%;height:100%;background:#ccc;border-radius:2px"></div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <span style="font-size:10px;color:#999;width:40px;flex-shrink:0">후</span>
+          <div style="flex:1;background:#eee;border-radius:2px;height:7px;overflow:hidden">
+            <div style="width:43%;height:100%;background:#03c75a;border-radius:2px"></div>
+          </div>
+        </div>
+      </div>
+        
+      </div>
+    </div>
+    
+    <div style="background:#fff;border-radius:12px;border:1px solid #e8e8e8;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 28px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.06)'">
+      <div style="height:4px;background:#03c75a"></div>
+      <div style="padding:24px 24px 20px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font-size:11px;font-weight:800;padding:3px 8px;border-radius:4px;background:#03c75a;color:#fff">NAVER</span>
+            <span style="font-size:11px;color:#aaa">가전·생활가전</span>
+          </div>
+          <span style="font-size:11px;color:#bbb">2025년</span>
+        </div>
+        <p style="font-size:14px;font-weight:700;color:#111;line-height:1.5;margin-bottom:14px">입찰 구조 재설계로<br>ROAS 640% → 1,100% 달성</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px"><span style="font-size:11px;padding:3px 9px;border-radius:3px;background:#e8fdf2;color:#03c75a;font-weight:600">전환 키워드 재배분</span><span style="font-size:11px;padding:3px 9px;border-radius:3px;background:#e8fdf2;color:#03c75a;font-weight:600">시간대별 입찰</span><span style="font-size:11px;padding:3px 9px;border-radius:3px;background:#e8fdf2;color:#03c75a;font-weight:600">소재 A/B 테스트</span></div>
+        <div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #f0f0f0">
+        <span style="font-size:12px;color:#888">ROAS</span>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:12px;color:#bbb">640%</span>
+          <span style="font-size:12px;color:#444">→</span>
+          <span style="font-size:13px;font-weight:800;color:#111">1,100%</span>
+          <span style="font-size:11px;font-weight:700;color:#fff;background:#03c75a;padding:2px 7px;border-radius:3px">+72%</span>
+        </div>
+      </div></div>
+        
+      <div style="margin-top:20px;border-top:1px solid #eee;padding-top:18px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <span style="font-size:10px;color:#999;width:40px;flex-shrink:0">전</span>
+          <div style="flex:1;background:#eee;border-radius:2px;height:7px;overflow:hidden">
+            <div style="width:40%;height:100%;background:#ccc;border-radius:2px"></div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <span style="font-size:10px;color:#999;width:40px;flex-shrink:0">후</span>
+          <div style="flex:1;background:#eee;border-radius:2px;height:7px;overflow:hidden">
+            <div style="width:69%;height:100%;background:#03c75a;border-radius:2px"></div>
+          </div>
+        </div>
+      </div>
+        
+      </div>
+    </div>
+  </div>
+
+  
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+    <span style="font-size:11px;font-weight:800;padding:4px 12px;border-radius:4px;background:#ff5c8d;color:#fff;letter-spacing:0.04em">ZIGZAG</span>
+    <span style="font-size:14px;font-weight:600;color:#444">지그재그 · 에이블리</span>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-bottom:48px">
+    
+    <div style="background:#fff;border-radius:12px;border:1px solid #e8e8e8;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 28px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.06)'">
+      <div style="height:4px;background:#ff5c8d"></div>
+      <div style="padding:24px 24px 20px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font-size:11px;font-weight:800;padding:3px 8px;border-radius:4px;background:#ff5c8d;color:#fff">ZIGZAG</span>
+            <span style="font-size:11px;color:#aaa">여성패션</span>
+          </div>
+          <span style="font-size:11px;color:#bbb">2025년</span>
+        </div>
+        <p style="font-size:14px;font-weight:700;color:#111;line-height:1.5;margin-bottom:14px">타깃 세분화 후<br>전환매출 4.40억 → 8.46억, 약 2배 성장</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px"><span style="font-size:11px;padding:3px 9px;border-radius:3px;background:#fff0f5;color:#ff5c8d;font-weight:600">타깃 세분화</span><span style="font-size:11px;padding:3px 9px;border-radius:3px;background:#fff0f5;color:#ff5c8d;font-weight:600">소재 최적화</span></div>
+        <div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #f0f0f0">
+        <span style="font-size:12px;color:#888">ROAS</span>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:12px;color:#bbb">624%</span>
+          <span style="font-size:12px;color:#444">→</span>
+          <span style="font-size:13px;font-weight:800;color:#111">1,011%</span>
+          <span style="font-size:11px;font-weight:700;color:#fff;background:#ff5c8d;padding:2px 7px;border-radius:3px">+62%</span>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #f0f0f0">
+        <span style="font-size:12px;color:#888">전환매출</span>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:12px;color:#bbb">4.40억</span>
+          <span style="font-size:12px;color:#444">→</span>
+          <span style="font-size:13px;font-weight:800;color:#111">8.46억</span>
+          <span style="font-size:11px;font-weight:700;color:#fff;background:#ff5c8d;padding:2px 7px;border-radius:3px">+92%</span>
+        </div>
+      </div></div>
+        
+      <div style="margin-top:20px;border-top:1px solid #eee;padding-top:18px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <span style="font-size:10px;color:#999;width:40px;flex-shrink:0">전</span>
+          <div style="flex:1;background:#eee;border-radius:2px;height:7px;overflow:hidden">
+            <div style="width:38%;height:100%;background:#ccc;border-radius:2px"></div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <span style="font-size:10px;color:#999;width:40px;flex-shrink:0">후</span>
+          <div style="flex:1;background:#eee;border-radius:2px;height:7px;overflow:hidden">
+            <div style="width:63%;height:100%;background:#ff5c8d;border-radius:2px"></div>
+          </div>
+        </div>
+      </div>
+        
+      </div>
+    </div>
+    
+    <div style="background:#fff;border-radius:12px;border:1px solid #e8e8e8;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 28px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.06)'">
+      <div style="height:4px;background:#ff5c8d"></div>
+      <div style="padding:24px 24px 20px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font-size:11px;font-weight:800;padding:3px 8px;border-radius:4px;background:#ff5c8d;color:#fff">ZIGZAG</span>
+            <span style="font-size:11px;color:#aaa">패션 잡화</span>
+          </div>
+          <span style="font-size:11px;color:#bbb">2025 상반기</span>
+        </div>
+        <p style="font-size:14px;font-weight:700;color:#111;line-height:1.5;margin-bottom:14px">카테고리 입찰 분리로<br>ROAS 567% → 1,007% 돌파</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px"><span style="font-size:11px;padding:3px 9px;border-radius:3px;background:#fff0f5;color:#ff5c8d;font-weight:600">카테고리 입찰 분리</span><span style="font-size:11px;padding:3px 9px;border-radius:3px;background:#fff0f5;color:#ff5c8d;font-weight:600">머신러닝 신호 집중</span></div>
+        <div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #f0f0f0">
+        <span style="font-size:12px;color:#888">ROAS</span>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:12px;color:#bbb">567%</span>
+          <span style="font-size:12px;color:#444">→</span>
+          <span style="font-size:13px;font-weight:800;color:#111">1,007%</span>
+          <span style="font-size:11px;font-weight:700;color:#fff;background:#ff5c8d;padding:2px 7px;border-radius:3px">+78%</span>
+        </div>
+      </div></div>
+        
+      <div style="margin-top:20px;border-top:1px solid #eee;padding-top:18px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <span style="font-size:10px;color:#999;width:40px;flex-shrink:0">전</span>
+          <div style="flex:1;background:#eee;border-radius:2px;height:7px;overflow:hidden">
+            <div style="width:35%;height:100%;background:#ccc;border-radius:2px"></div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <span style="font-size:10px;color:#999;width:40px;flex-shrink:0">후</span>
+          <div style="flex:1;background:#eee;border-radius:2px;height:7px;overflow:hidden">
+            <div style="width:63%;height:100%;background:#ff5c8d;border-radius:2px"></div>
+          </div>
+        </div>
+      </div>
+        
+      </div>
+    </div>
+    
+    <div style="background:#fff;border-radius:12px;border:1px solid #e8e8e8;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 28px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.06)'">
+      <div style="height:4px;background:#7c3aed"></div>
+      <div style="padding:24px 24px 20px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font-size:11px;font-weight:800;padding:3px 8px;border-radius:4px;background:#7c3aed;color:#fff">에이블리</span>
+            <span style="font-size:11px;color:#aaa">일상복</span>
+          </div>
+          <span style="font-size:11px;color:#bbb">2025년</span>
+        </div>
+        <p style="font-size:14px;font-weight:700;color:#111;line-height:1.5;margin-bottom:14px">신규 타깃 확장으로<br>전환매출 8,842만 → 1.94억, 2.2배 성장</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px"><span style="font-size:11px;padding:3px 9px;border-radius:3px;background:#f5f0ff;color:#7c3aed;font-weight:600">신규 타깃 확장</span><span style="font-size:11px;padding:3px 9px;border-radius:3px;background:#f5f0ff;color:#7c3aed;font-weight:600">예산 집중 재배분</span></div>
+        <div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #f0f0f0">
+        <span style="font-size:12px;color:#888">전환매출</span>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:12px;color:#bbb">8,842만</span>
+          <span style="font-size:12px;color:#444">→</span>
+          <span style="font-size:13px;font-weight:800;color:#111">1.94억</span>
+          <span style="font-size:11px;font-weight:700;color:#fff;background:#7c3aed;padding:2px 7px;border-radius:3px">+119%</span>
+        </div>
+      </div></div>
+        
+      <div style="margin-top:20px;border-top:1px solid #eee;padding-top:18px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <span style="font-size:10px;color:#999;width:40px;flex-shrink:0">전</span>
+          <div style="flex:1;background:#eee;border-radius:2px;height:7px;overflow:hidden">
+            <div style="width:31%;height:100%;background:#ccc;border-radius:2px"></div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <span style="font-size:10px;color:#999;width:40px;flex-shrink:0">후</span>
+          <div style="flex:1;background:#eee;border-radius:2px;height:7px;overflow:hidden">
+            <div style="width:68%;height:100%;background:#7c3aed;border-radius:2px"></div>
+          </div>
+        </div>
+      </div>
+        
+      </div>
+    </div>
+  </div>
+
+  
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+    <span style="font-size:11px;font-weight:800;padding:4px 12px;border-radius:4px;background:#00bfae;color:#fff;letter-spacing:0.04em">오늘의집</span>
+    <span style="font-size:14px;font-weight:600;color:#444">오늘의집 광고</span>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px">
+    
+    <div style="background:#fff;border-radius:12px;border:1px solid #e8e8e8;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 28px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.06)'">
+      <div style="height:4px;background:#00bfae"></div>
+      <div style="padding:24px 24px 20px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font-size:11px;font-weight:800;padding:3px 8px;border-radius:4px;background:#00bfae;color:#fff">오늘의집</span>
+            <span style="font-size:11px;color:#aaa">가구·수납함</span>
+          </div>
+          <span style="font-size:11px;color:#bbb">2025년</span>
+        </div>
+        <p style="font-size:14px;font-weight:700;color:#111;line-height:1.5;margin-bottom:14px">타깃 발굴·소재 개선으로<br>전환매출 8,782만 → 1.60억 성장</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px"><span style="font-size:11px;padding:3px 9px;border-radius:3px;background:#f0fdfa;color:#00bfae;font-weight:600">신규 타깃 발굴</span><span style="font-size:11px;padding:3px 9px;border-radius:3px;background:#f0fdfa;color:#00bfae;font-weight:600">소재 개선</span><span style="font-size:11px;padding:3px 9px;border-radius:3px;background:#f0fdfa;color:#00bfae;font-weight:600">예산 진적 확대</span></div>
+        <div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #f0f0f0">
+        <span style="font-size:12px;color:#888">ROAS</span>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:12px;color:#bbb">413%</span>
+          <span style="font-size:12px;color:#444">→</span>
+          <span style="font-size:13px;font-weight:800;color:#111">791%</span>
+          <span style="font-size:11px;font-weight:700;color:#fff;background:#00bfae;padding:2px 7px;border-radius:3px">+91%</span>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #f0f0f0">
+        <span style="font-size:12px;color:#888">전환매출</span>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:12px;color:#bbb">8,782만</span>
+          <span style="font-size:12px;color:#444">→</span>
+          <span style="font-size:13px;font-weight:800;color:#111">1.60억</span>
+          <span style="font-size:11px;font-weight:700;color:#fff;background:#00bfae;padding:2px 7px;border-radius:3px">+82%</span>
+        </div>
+      </div></div>
+        
+      <div style="margin-top:20px;border-top:1px solid #eee;padding-top:18px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <span style="font-size:10px;color:#999;width:40px;flex-shrink:0">전</span>
+          <div style="flex:1;background:#eee;border-radius:2px;height:7px;overflow:hidden">
+            <div style="width:34%;height:100%;background:#ccc;border-radius:2px"></div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <span style="font-size:10px;color:#999;width:40px;flex-shrink:0">후</span>
+          <div style="flex:1;background:#eee;border-radius:2px;height:7px;overflow:hidden">
+            <div style="width:62%;height:100%;background:#00bfae;border-radius:2px"></div>
+          </div>
+        </div>
+      </div>
+        
+      </div>
+    </div>
+    
+    <div style="background:#fff;border-radius:12px;border:1px solid #e8e8e8;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 28px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.06)'">
+      <div style="height:4px;background:#00bfae"></div>
+      <div style="padding:24px 24px 20px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font-size:11px;font-weight:800;padding:3px 8px;border-radius:4px;background:#00bfae;color:#fff">오늘의집</span>
+            <span style="font-size:11px;color:#aaa">인테리어 소품</span>
+          </div>
+          <span style="font-size:11px;color:#bbb">2025년</span>
+        </div>
+        <p style="font-size:14px;font-weight:700;color:#111;line-height:1.5;margin-bottom:14px">관심사 타깃 재설정·소재 개선으로<br>ROAS 413% → 564% 달성</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px"><span style="font-size:11px;padding:3px 9px;border-radius:3px;background:#f0fdfa;color:#00bfae;font-weight:600">관심사 타깃 재설정</span><span style="font-size:11px;padding:3px 9px;border-radius:3px;background:#f0fdfa;color:#00bfae;font-weight:600">소재 A/B 테스트</span><span style="font-size:11px;padding:3px 9px;border-radius:3px;background:#f0fdfa;color:#00bfae;font-weight:600">시즌 연동 예산</span></div>
+        <div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #f0f0f0">
+        <span style="font-size:12px;color:#888">ROAS</span>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:12px;color:#bbb">413%</span>
+          <span style="font-size:12px;color:#444">→</span>
+          <span style="font-size:13px;font-weight:800;color:#111">564%</span>
+          <span style="font-size:11px;font-weight:700;color:#fff;background:#00bfae;padding:2px 7px;border-radius:3px">+37%</span>
+        </div>
+      </div></div>
+        
+      <div style="margin-top:20px;border-top:1px solid #eee;padding-top:18px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <span style="font-size:10px;color:#999;width:40px;flex-shrink:0">전</span>
+          <div style="flex:1;background:#eee;border-radius:2px;height:7px;overflow:hidden">
+            <div style="width:52%;height:100%;background:#ccc;border-radius:2px"></div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <span style="font-size:10px;color:#999;width:40px;flex-shrink:0">후</span>
+          <div style="flex:1;background:#eee;border-radius:2px;height:7px;overflow:hidden">
+            <div style="width:71%;height:100%;background:#00bfae;border-radius:2px"></div>
+          </div>
+        </div>
+      </div>
+        
+      </div>
+    </div>
+    
+    <div style="background:#fff;border-radius:12px;border:1px solid #e8e8e8;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 28px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.06)'">
+      <div style="height:4px;background:#00bfae"></div>
+      <div style="padding:24px 24px 20px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font-size:11px;font-weight:800;padding:3px 8px;border-radius:4px;background:#00bfae;color:#fff">오늘의집</span>
+            <span style="font-size:11px;color:#aaa">조명</span>
+          </div>
+          <span style="font-size:11px;color:#bbb">2025년</span>
+        </div>
+        <p style="font-size:14px;font-weight:700;color:#111;line-height:1.5;margin-bottom:14px">프리미엄 소재 전략으로<br>ROAS 2,027% → 3,173%, 매출 2배</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px"><span style="font-size:11px;padding:3px 9px;border-radius:3px;background:#f0fdfa;color:#00bfae;font-weight:600">프리미엄 소재 강화</span><span style="font-size:11px;padding:3px 9px;border-radius:3px;background:#f0fdfa;color:#00bfae;font-weight:600">고단가 전략</span><span style="font-size:11px;padding:3px 9px;border-radius:3px;background:#f0fdfa;color:#00bfae;font-weight:600">경쟁 대비 포지셔닝</span></div>
+        <div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #f0f0f0">
+        <span style="font-size:12px;color:#888">ROAS</span>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:12px;color:#bbb">2,027%</span>
+          <span style="font-size:12px;color:#444">→</span>
+          <span style="font-size:13px;font-weight:800;color:#111">3,173%</span>
+          <span style="font-size:11px;font-weight:700;color:#fff;background:#00bfae;padding:2px 7px;border-radius:3px">+57%</span>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #f0f0f0">
+        <span style="font-size:12px;color:#888">전환매출</span>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:12px;color:#bbb">7,919만</span>
+          <span style="font-size:12px;color:#444">→</span>
+          <span style="font-size:13px;font-weight:800;color:#111">1.56억</span>
+          <span style="font-size:11px;font-weight:700;color:#fff;background:#00bfae;padding:2px 7px;border-radius:3px">+96%</span>
+        </div>
+      </div></div>
+        
+      <div style="margin-top:20px;border-top:1px solid #eee;padding-top:18px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <span style="font-size:10px;color:#999;width:40px;flex-shrink:0">전</span>
+          <div style="flex:1;background:#eee;border-radius:2px;height:7px;overflow:hidden">
+            <div style="width:44%;height:100%;background:#ccc;border-radius:2px"></div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <span style="font-size:10px;color:#999;width:40px;flex-shrink:0">후</span>
+          <div style="flex:1;background:#eee;border-radius:2px;height:7px;overflow:hidden">
+            <div style="width:69%;height:100%;background:#00bfae;border-radius:2px"></div>
+          </div>
+        </div>
+      </div>
+        
+      </div>
+    </div>
+  </div>
+  <p style="font-size:12px;color:#bbb;margin-top:24px;line-height:1.8">* 수치는 실제 광고 계정 데이터 기반이며, 광고주 동의 하에 업종·카테고리만 표기했습니다.</p>
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+    <span style="font-size:11px;font-weight:800;padding:4px 12px;border-radius:4px;background:#e8361a;color:#fff;letter-spacing:0.04em">COUPANG</span>
+    <span style="font-size:14px;font-weight:600;color:#444">쿠팡 광고</span>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-bottom:48px">
+    
+    <div style="background:#fff;border-radius:12px;border:1px solid #e8e8e8;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 28px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.06)'">
+      <div style="height:4px;background:#e8361a"></div>
+      <div style="padding:24px 24px 20px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font-size:11px;font-weight:800;padding:3px 8px;border-radius:4px;background:#e8361a;color:#fff">쿠팡</span>
+            <span style="font-size:11px;color:#aaa">건강기능식품</span>
+          </div>
+          <span style="font-size:11px;color:#bbb">2025년</span>
+        </div>
+        <p style="font-size:14px;font-weight:700;color:#111;line-height:1.5;margin-bottom:14px">광고 연동 최적화로<br>전체매출 1,309만 → 1.01억, 7.7배 성장</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px"><span style="font-size:11px;padding:3px 9px;border-radius:3px;background:#fff2f0;color:#e8361a;font-weight:600">스폰서 광고 연동</span><span style="font-size:11px;padding:3px 9px;border-radius:3px;background:#fff2f0;color:#e8361a;font-weight:600">매출 스케일업</span><span style="font-size:11px;padding:3px 9px;border-radius:3px;background:#fff2f0;color:#e8361a;font-weight:600">카테고리 점유율</span></div>
+        <div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #f0f0f0">
+        <span style="font-size:12px;color:#888">ROAS</span>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:12px;color:#bbb">452%</span>
+          <span style="font-size:12px;color:#444">→</span>
+          <span style="font-size:13px;font-weight:800;color:#111">698%</span>
+          <span style="font-size:11px;font-weight:700;color:#fff;background:#e8361a;padding:2px 7px;border-radius:3px">+54%</span>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #f0f0f0">
+        <span style="font-size:12px;color:#888">전체매출</span>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:12px;color:#bbb">1,309만</span>
+          <span style="font-size:12px;color:#444">→</span>
+          <span style="font-size:13px;font-weight:800;color:#111">1.01억</span>
+          <span style="font-size:11px;font-weight:700;color:#fff;background:#e8361a;padding:2px 7px;border-radius:3px">+673%</span>
+        </div>
+      </div></div>
+        
+      <div style="margin-top:20px;border-top:1px solid #eee;padding-top:18px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <span style="font-size:10px;color:#999;width:40px;flex-shrink:0">전</span>
+          <div style="flex:1;background:#eee;border-radius:2px;height:7px;overflow:hidden">
+            <div style="width:14%;height:100%;background:#ccc;border-radius:2px"></div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <span style="font-size:10px;color:#999;width:40px;flex-shrink:0">후</span>
+          <div style="flex:1;background:#eee;border-radius:2px;height:7px;overflow:hidden">
+            <div style="width:58%;height:100%;background:#e8361a;border-radius:2px"></div>
+          </div>
+        </div>
+      </div>
+        
+      </div>
+    </div>
+    
+    <div style="background:#fff;border-radius:12px;border:1px solid #e8e8e8;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 28px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.06)'">
+      <div style="height:4px;background:#e8361a"></div>
+      <div style="padding:24px 24px 20px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font-size:11px;font-weight:800;padding:3px 8px;border-radius:4px;background:#e8361a;color:#fff">쿠팡</span>
+            <span style="font-size:11px;color:#aaa">뷰티·헬스케어</span>
+          </div>
+          <span style="font-size:11px;color:#bbb">2025년</span>
+        </div>
+        <p style="font-size:14px;font-weight:700;color:#111;line-height:1.5;margin-bottom:14px">아이템 위너 최적화로<br>전체매출 4,120만 → 1.08억, 2.6배 성장</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px"><span style="font-size:11px;padding:3px 9px;border-radius:3px;background:#fff2f0;color:#e8361a;font-weight:600">아이템 위너 전략</span><span style="font-size:11px;padding:3px 9px;border-radius:3px;background:#fff2f0;color:#e8361a;font-weight:600">상품 집중화</span><span style="font-size:11px;padding:3px 9px;border-radius:3px;background:#fff2f0;color:#e8361a;font-weight:600">CPC 입찰 조정</span></div>
+        <div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #f0f0f0">
+        <span style="font-size:12px;color:#888">ROAS</span>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:12px;color:#bbb">580%</span>
+          <span style="font-size:12px;color:#444">→</span>
+          <span style="font-size:13px;font-weight:800;color:#111">890%</span>
+          <span style="font-size:11px;font-weight:700;color:#fff;background:#e8361a;padding:2px 7px;border-radius:3px">+53%</span>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #f0f0f0">
+        <span style="font-size:12px;color:#888">전체매출</span>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:12px;color:#bbb">4,120만</span>
+          <span style="font-size:12px;color:#444">→</span>
+          <span style="font-size:13px;font-weight:800;color:#111">1.08억</span>
+          <span style="font-size:11px;font-weight:700;color:#fff;background:#e8361a;padding:2px 7px;border-radius:3px">+162%</span>
+        </div>
+      </div></div>
+        
+      <div style="margin-top:20px;border-top:1px solid #eee;padding-top:18px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <span style="font-size:10px;color:#999;width:40px;flex-shrink:0">전</span>
+          <div style="flex:1;background:#eee;border-radius:2px;height:7px;overflow:hidden">
+            <div style="width:28%;height:100%;background:#ccc;border-radius:2px"></div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <span style="font-size:10px;color:#999;width:40px;flex-shrink:0">후</span>
+          <div style="flex:1;background:#eee;border-radius:2px;height:7px;overflow:hidden">
+            <div style="width:58%;height:100%;background:#e8361a;border-radius:2px"></div>
+          </div>
+        </div>
+      </div>
+        
+      </div>
+    </div>
+    
+    <div style="background:#fff;border-radius:12px;border:1px solid #e8e8e8;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 28px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.06)'">
+      <div style="height:4px;background:#e8361a"></div>
+      <div style="padding:24px 24px 20px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font-size:11px;font-weight:800;padding:3px 8px;border-radius:4px;background:#e8361a;color:#fff">쿠팡</span>
+            <span style="font-size:11px;color:#aaa">유아·아동용품</span>
+          </div>
+          <span style="font-size:11px;color:#bbb">2025년</span>
+        </div>
+        <p style="font-size:14px;font-weight:700;color:#111;line-height:1.5;margin-bottom:14px">경쟁 상품 분석 후 점유율 확대,<br>전체매출 5,710만 → 1.23억</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px"><span style="font-size:11px;padding:3px 9px;border-radius:3px;background:#fff2f0;color:#e8361a;font-weight:600">경쟁사 입찰 분석</span><span style="font-size:11px;padding:3px 9px;border-radius:3px;background:#fff2f0;color:#e8361a;font-weight:600">아이템 위너 확대</span><span style="font-size:11px;padding:3px 9px;border-radius:3px;background:#fff2f0;color:#e8361a;font-weight:600">예산 집중화</span></div>
+        <div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #f0f0f0">
+        <span style="font-size:12px;color:#888">ROAS</span>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:12px;color:#bbb">640%</span>
+          <span style="font-size:12px;color:#444">→</span>
+          <span style="font-size:13px;font-weight:800;color:#111">1,080%</span>
+          <span style="font-size:11px;font-weight:700;color:#fff;background:#e8361a;padding:2px 7px;border-radius:3px">+69%</span>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #f0f0f0">
+        <span style="font-size:12px;color:#888">전체매출</span>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:12px;color:#bbb">5,710만</span>
+          <span style="font-size:12px;color:#444">→</span>
+          <span style="font-size:13px;font-weight:800;color:#111">1.23억</span>
+          <span style="font-size:11px;font-weight:700;color:#fff;background:#e8361a;padding:2px 7px;border-radius:3px">+115%</span>
+        </div>
+      </div></div>
+        
+      <div style="margin-top:20px;border-top:1px solid #eee;padding-top:18px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <span style="font-size:10px;color:#999;width:40px;flex-shrink:0">전</span>
+          <div style="flex:1;background:#eee;border-radius:2px;height:7px;overflow:hidden">
+            <div style="width:35%;height:100%;background:#ccc;border-radius:2px"></div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <span style="font-size:10px;color:#999;width:40px;flex-shrink:0">후</span>
+          <div style="flex:1;background:#eee;border-radius:2px;height:7px;overflow:hidden">
+            <div style="width:68%;height:100%;background:#e8361a;border-radius:2px"></div>
+          </div>
+        </div>
+      </div>
+        
+      </div>
+    </div>
+  </div>
+
+  
+</section>
+
+
+<!-- WHY ME -->
+
+
+<section id="ms-cases" style="padding:96px 6%;border-bottom:1px solid var(--border);background:var(--bg)">
+  <p class="sec-label">DIAGNOSIS CASES · 곽재훈 마케터</p>
+  <h2 class="sec-title">실제 진단에서 자주 마주치는<br>세 가지 패턴.</h2>
+  <p class="sec-sub">막연한 "성과 개선"이 아니라, 어떤 문제를 어떻게 풀어가는지의 실제 흐름입니다.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px">
+
+    <div style="border:1px solid var(--border);padding:40px 32px">
+      <p style="font-size:10px;letter-spacing:0.12em;color:var(--muted);margin-bottom:8px">CASE 01 · 네이버 · 여성 의류</p>
+      <h3 style="font-family:'Noto Serif KR',serif;font-size:18px;font-weight:700;color:var(--black);margin-bottom:24px;line-height:1.4">광고비는 늘었는데<br>매출은 그대로</h3>
+      <p style="font-size:11px;letter-spacing:0.1em;color:var(--muted);margin-bottom:10px">진단 시 발견된 문제</p>
+      <ul style="font-size:13px;color:var(--mid);line-height:2;list-style:none;margin-bottom:24px;padding-left:0">
+        <li style="padding-left:14px;position:relative"><span style="position:absolute;left:0">—</span> 키워드 80개 중 5개에 광고비 70% 집중</li>
+        <li style="padding-left:14px;position:relative"><span style="position:absolute;left:0">—</span> 나머지 키워드는 클릭만 발생, 전환 0건 다수</li>
+        <li style="padding-left:14px;position:relative"><span style="position:absolute;left:0">—</span> 동일 상품군 캠페인 3개로 중복 운영</li>
+        <li style="padding-left:14px;position:relative"><span style="position:absolute;left:0">—</span> 대표 키워드 1위 입찰 고집으로 CPC만 상승</li>
+      </ul>
+      <p style="font-size:11px;letter-spacing:0.1em;color:var(--muted);margin-bottom:10px">접근 방향</p>
+      <ul style="font-size:13px;color:var(--mid);line-height:2;list-style:none;padding-left:0">
+        <li style="padding-left:14px;position:relative"><span style="position:absolute;left:0">→</span> 장기 무전환 키워드 정리 → 예산 회수</li>
+        <li style="padding-left:14px;position:relative"><span style="position:absolute;left:0">→</span> 핵심 키워드 입찰 골든존 재탐색 (1위 ×)</li>
+        <li style="padding-left:14px;position:relative"><span style="position:absolute;left:0">→</span> 중복 캠페인 통합 → 품질지수 데이터 집중</li>
+      </ul>
+    </div>
+
+    <div style="border:1px solid var(--border);padding:40px 32px">
+      <p style="font-size:10px;letter-spacing:0.12em;color:var(--muted);margin-bottom:8px">CASE 02 · 지그재그 · 패션 잡화</p>
+      <h3 style="font-family:'Noto Serif KR',serif;font-size:18px;font-weight:700;color:var(--black);margin-bottom:24px;line-height:1.4">AI 광고가 어느 순간부터<br>성과를 잃는 경우</h3>
+      <p style="font-size:11px;letter-spacing:0.1em;color:var(--muted);margin-bottom:10px">진단 시 발견된 문제</p>
+      <ul style="font-size:13px;color:var(--mid);line-height:2;list-style:none;margin-bottom:24px;padding-left:0">
+        <li style="padding-left:14px;position:relative"><span style="position:absolute;left:0">—</span> 썸네일 6개월간 미교체 → CTR 지속 하락</li>
+        <li style="padding-left:14px;position:relative"><span style="position:absolute;left:0">—</span> 저효율 캠페인 다수 운영으로 학습 데이터 분산</li>
+        <li style="padding-left:14px;position:relative"><span style="position:absolute;left:0">—</span> 기획전 일정 대응 없이 일반 노출만 진행</li>
+        <li style="padding-left:14px;position:relative"><span style="position:absolute;left:0">—</span> 부진 상품 그대로 둔 채 신규 상품만 추가</li>
+      </ul>
+      <p style="font-size:11px;letter-spacing:0.1em;color:var(--muted);margin-bottom:10px">접근 방향</p>
+      <ul style="font-size:13px;color:var(--mid);line-height:2;list-style:none;padding-left:0">
+        <li style="padding-left:14px;position:relative"><span style="position:absolute;left:0">→</span> 썸네일 A/B 테스트로 클릭률 회복</li>
+        <li style="padding-left:14px;position:relative"><span style="position:absolute;left:0">→</span> 저효율 캠페인 종료 → 머신러닝 신호 집중</li>
+        <li style="padding-left:14px;position:relative"><span style="position:absolute;left:0">→</span> 다음 기획전 사전 진입 신청 (파트너 우선권)</li>
+      </ul>
+    </div>
+
+    <div style="border:1px solid var(--border);padding:40px 32px">
+      <p style="font-size:10px;letter-spacing:0.12em;color:var(--muted);margin-bottom:8px">CASE 03 · 네이버 + 지그재그 동시 운영</p>
+      <h3 style="font-family:'Noto Serif KR',serif;font-size:18px;font-weight:700;color:var(--black);margin-bottom:24px;line-height:1.4">두 매체에 예산을 나눴는데<br>둘 다 성과가 낮은 경우</h3>
+      <p style="font-size:11px;letter-spacing:0.1em;color:var(--muted);margin-bottom:10px">진단 시 발견된 문제</p>
+      <ul style="font-size:13px;color:var(--mid);line-height:2;list-style:none;margin-bottom:24px;padding-left:0">
+        <li style="padding-left:14px;position:relative"><span style="position:absolute;left:0">—</span> 같은 상품을 양쪽 매체에서 동일 가격 운영</li>
+        <li style="padding-left:14px;position:relative"><span style="position:absolute;left:0">—</span> 모바일 비중 80%인데 PC 기준 소재만 사용</li>
+        <li style="padding-left:14px;position:relative"><span style="position:absolute;left:0">—</span> 구매 몰리는 시간대 입찰이 평일과 동일</li>
+        <li style="padding-left:14px;position:relative"><span style="position:absolute;left:0">—</span> 매체별 ROAS 비교 없이 예산만 절반씩 분배</li>
+      </ul>
+      <p style="font-size:11px;letter-spacing:0.1em;color:var(--muted);margin-bottom:10px">접근 방향</p>
+      <ul style="font-size:13px;color:var(--mid);line-height:2;list-style:none;padding-left:0">
+        <li style="padding-left:14px;position:relative"><span style="position:absolute;left:0">→</span> 매체별 강점 카테고리 분리 — 객단가·타깃 기준</li>
+        <li style="padding-left:14px;position:relative"><span style="position:absolute;left:0">→</span> 모바일 전용 소재 추가, 디바이스별 입찰 차등</li>
+        <li style="padding-left:14px;position:relative"><span style="position:absolute;left:0">→</span> 주간 ROAS 비교 → 예산 재분배 (50:50 고정 해제)</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- DIAGNOSIS CASES -->
+
+<!-- WHY ME -->
+<section id="ms-why" style="padding:96px 6%;border-bottom:1px solid var(--border);background:#f0fdf4">
+  <p class="sec-label">WHY ME · 곽재훈 마케터</p>
+  <h2 class="sec-title">맡기시면, 무엇이 달라지나요?</h2>
+  <p class="sec-sub">대행사를 바꿔도 결과가 그대로인 경우가 많습니다. 운영 방식이 똑같기 때문입니다.<br>제가 일하는 방식은 세 가지가 다르고, 그 차이가 운영 첫 달부터 드러납니다.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px">
+    <div style="background:#fff;border-radius:12px;border:1px solid #e8e8e8;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.05)">
+      <div style="height:4px;background:#2563eb"></div>
+      <div style="padding:32px 28px">
+        <div style="width:40px;height:40px;border-radius:8px;background:#eff6ff;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:16px">📊</div>
+        <p style="font-size:11px;font-weight:700;color:#2563eb;letter-spacing:0.1em;margin-bottom:10px">차이 01</p>
+        <h3 style="font-size:17px;font-weight:700;color:#111;margin-bottom:12px;line-height:1.4">매체별 데이터를<br>근거로 제안합니다</h3>
+        <p style="font-size:13px;color:#777;line-height:1.8">네이버와 지그재그를 모두 깊이 운영해왔습니다. 상품 객단가·타깃 연령·구매 패턴을 함께 보고, 어느 매체에 어느 정도 예산을 배분해야 할지 데이터를 근거로 제안드립니다.</p>
+      </div>
+    </div>
+    <div style="background:#fff;border-radius:12px;border:1px solid #e8e8e8;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.05)">
+      <div style="height:4px;background:#16a34a"></div>
+      <div style="padding:32px 28px">
+        <div style="width:40px;height:40px;border-radius:8px;background:#f0fdf4;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:16px">⚡</div>
+        <p style="font-size:11px;font-weight:700;color:#16a34a;letter-spacing:0.1em;margin-bottom:10px">차이 02</p>
+        <h3 style="font-size:17px;font-weight:700;color:#111;margin-bottom:12px;line-height:1.4">성과 변화를<br>빠르게 파악합니다</h3>
+        <p style="font-size:13px;color:#777;line-height:1.8">동시에 운영하는 계정 수를 제한합니다. 주간 리포트 외에도 ROAS·CTR·전환수에 의미 있는 변화가 보이면 메신저로 먼저 공유드리고, 그 자리에서 다음 액션을 함께 결정합니다.</p>
+      </div>
+    </div>
+    <div style="background:#fff;border-radius:12px;border:1px solid #e8e8e8;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.05)">
+      <div style="height:4px;background:#9333ea"></div>
+      <div style="padding:32px 28px">
+        <div style="width:40px;height:40px;border-radius:8px;background:#faf5ff;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:16px">🤝</div>
+        <p style="font-size:11px;font-weight:700;color:#9333ea;letter-spacing:0.1em;margin-bottom:10px">차이 03</p>
+        <h3 style="font-size:17px;font-weight:700;color:#111;margin-bottom:12px;line-height:1.4">상담한 사람이<br>끝까지 운영합니다</h3>
+        <p style="font-size:13px;color:#777;line-height:1.8">영업과 운영이 분리된 구조가 아닙니다. 처음 연락부터 매월 리뷰까지 곽재훈이 직접 담당합니다. 중간에 담당자가 바뀌어 운영 흐름이 끊기는 일이 없습니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STRATEGY 섹션 ══ -->
+<section id="ms-strategy" style="padding:96px 6%;border-bottom:1px solid #e8e8e8;background:#fff">
+  <p class="sec-label">STRATEGY · 곽재훈 마케터</p>
+  <h2 class="sec-title">매체마다 작동 방식이 다릅니다.<br>전략도 그에 맞게 달라야 합니다.</h2>
+  <p class="sec-sub">네이버와 지그재그는 광고가 노출되는 구조 자체가 다릅니다.<br>각 매체의 알고리즘을 이해하고, 그에 맞는 운영 원칙을 정리했습니다.</p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+
+    <!-- 네이버 -->
+    <div style="background:#f0fdf4;border-radius:12px;border:1px solid #bbf7d0;overflow:hidden">
+      <div style="background:#03c75a;padding:20px 28px;display:flex;align-items:center;gap:12px">
+        <span style="font-size:13px;font-weight:800;color:#fff;letter-spacing:0.06em">NAVER</span>
+        <span style="font-size:13px;color:rgba(255,255,255,0.8)">네이버 광고</span>
+      </div>
+      <div style="padding:28px">
+        <p style="font-size:15px;font-weight:700;color:#111;margin-bottom:6px">성과를 만드는 3가지 원칙</p>
+        <p style="font-size:13px;color:#888;margin-bottom:24px;line-height:1.7">"같은 키워드 안에서 누가 노출되느냐"의 싸움.<br>구조와 품질지수가 입찰가보다 먼저입니다.</p>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div style="background:#fff;border-radius:8px;padding:20px;border:1px solid #d1fae5">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+              <span style="width:24px;height:24px;border-radius:50%;background:#03c75a;color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">1</span>
+              <p style="font-size:13px;font-weight:700;color:#111">구매 의도 기반 키워드 타겟팅</p>
+            </div>
+            <p style="font-size:13px;color:#777;line-height:1.7;padding-left:34px">조회수가 많은 대표 키워드보다, 실제 전환이 발생하는 세부 키워드 중심으로 구조를 다시 잡아 전환당 비용을 낮춥니다.</p>
+          </div>
+          <div style="background:#fff;border-radius:8px;padding:20px;border:1px solid #d1fae5">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+              <span style="width:24px;height:24px;border-radius:50%;background:#03c75a;color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">2</span>
+              <p style="font-size:13px;font-weight:700;color:#111">효율 중심의 입찰가 최적화</p>
+            </div>
+            <p style="font-size:13px;color:#777;line-height:1.7;padding-left:34px">1위 입찰을 무리하게 잡지 않습니다. ROAS가 가장 높게 나오는 순위 구간을 찾아, 같은 예산으로 더 많은 전환을 만듭니다.</p>
+          </div>
+          <div style="background:#fff;border-radius:8px;padding:20px;border:1px solid #d1fae5">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+              <span style="width:24px;height:24px;border-radius:50%;background:#03c75a;color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">3</span>
+              <p style="font-size:13px;font-weight:700;color:#111">유입 단가를 낮추는 품질지수 관리</p>
+            </div>
+            <p style="font-size:13px;color:#777;line-height:1.7;padding-left:34px">클릭률이 확보되는 확장 소재·썸네일 테스트를 꾸준히 진행해 품질지수를 개선하고, 클릭 단가를 안정적인 구간에서 관리합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 지그재그 -->
+    <div style="background:#fff0f5;border-radius:12px;border:1px solid #fecdd3;overflow:hidden">
+      <div style="background:#ff5c8d;padding:20px 28px;display:flex;align-items:center;gap:12px">
+        <span style="font-size:13px;font-weight:800;color:#fff;letter-spacing:0.06em">ZIGZAG</span>
+        <span style="font-size:13px;color:rgba(255,255,255,0.8)">지그재그 AI</span>
+      </div>
+      <div style="padding:28px">
+        <p style="font-size:15px;font-weight:700;color:#111;margin-bottom:6px">성과를 만드는 3가지 원칙</p>
+        <p style="font-size:13px;color:#888;margin-bottom:24px;line-height:1.7">AI가 반응으로 노출을 결정하는 구조.<br>예산보다 데이터 신호의 정교함이 더 중요합니다.</p>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div style="background:#fff;border-radius:8px;padding:20px;border:1px solid #fecdd3">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+              <span style="width:24px;height:24px;border-radius:50%;background:#ff5c8d;color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">1</span>
+              <p style="font-size:13px;font-weight:700;color:#111">부진 상품 그룹 재세팅</p>
+            </div>
+            <p style="font-size:13px;color:#777;line-height:1.7;padding-left:34px">판매가 부진한 상품의 원인을 노출·클릭 데이터로 분석합니다. AI 학습 신호를 방해하는 그룹을 정리하고, 잠재력이 있는 상품 위주로 구조를 다시 잡습니다.</p>
+          </div>
+          <div style="background:#fff;border-radius:8px;padding:20px;border:1px solid #fecdd3">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+              <span style="width:24px;height:24px;border-radius:50%;background:#ff5c8d;color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">2</span>
+              <p style="font-size:13px;font-weight:700;color:#111">머신러닝 최적화 & 부스팅</p>
+            </div>
+            <p style="font-size:13px;color:#777;line-height:1.7;padding-left:34px">AI 학습 흐름을 끊지 않으면서 전환율이 높은 캠페인에 예산을 집중합니다. 최적화가 안정된 뒤, 전환 신호가 명확한 캠페인부터 단계적으로 예산을 확대합니다.</p>
+          </div>
+          <div style="background:#fff;border-radius:8px;padding:20px;border:1px solid #fecdd3">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+              <span style="width:24px;height:24px;border-radius:50%;background:#ff5c8d;color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">3</span>
+              <p style="font-size:13px;font-weight:700;color:#111">유입 단가를 낮추는 썸네일 교체</p>
+            </div>
+            <p style="font-size:13px;color:#777;line-height:1.7;padding-left:34px">노출당 과금(CPM) 구조에서는 클릭률 확보가 곧 예산 방어입니다. 클릭 데이터에서 검증된 이미지를 광고 소재로 우선 반영해 단가를 관리합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══ HOW I WORK 섹션 ══ -->
+<section id="ms-how" style="padding:96px 6%;border-bottom:1px solid #e8e8e8;background:#f7f8fc">
+  <p class="sec-label">HOW I WORK · 곽재훈 마케터</p>
+  <h2 class="sec-title">광고를 맡기시면,<br>이 순서로 진행합니다.</h2>
+  <p class="sec-sub">매일·매주 어떤 작업이 어떻게 진행되는지, 실제 운영의 흐름을 그대로 보여드립니다.<br>시작 후 7일 안에 1차 진단 리포트를 받게 됩니다.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0;border:1px solid #e8e8e8;border-radius:12px;overflow:hidden">
+
+    <div style="padding:36px 28px;border-right:1px solid #e8e8e8;background:#fff;position:relative">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#2563eb,#60a5fa)"></div>
+      <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:20px">
+        <span style="font-size:11px;font-weight:800;color:#2563eb;background:#eff6ff;padding:4px 10px;border-radius:4px">DAY 1 – 7</span>
+      </div>
+      <h3 style="font-size:16px;font-weight:700;color:#111;margin-bottom:16px">진단 & 베이스라인</h3>
+      <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:10px">
+        <li style="display:flex;gap:8px;font-size:13px;color:#666;line-height:1.6"><span style="color:#2563eb;font-weight:700;flex-shrink:0">✓</span>계정 전체 구조 점검</li>
+        <li style="display:flex;gap:8px;font-size:13px;color:#666;line-height:1.6"><span style="color:#2563eb;font-weight:700;flex-shrink:0">✓</span>키워드·소재·입찰 진단</li>
+        <li style="display:flex;gap:8px;font-size:13px;color:#666;line-height:1.6"><span style="color:#2563eb;font-weight:700;flex-shrink:0">✓</span>경쟁사 노출 환경 분석</li>
+        <li style="display:flex;gap:8px;font-size:13px;color:#666;line-height:1.6"><span style="color:#2563eb;font-weight:700;flex-shrink:0">✓</span>현재 ROAS 베이스라인 산출</li>
+        <li style="display:flex;gap:8px;font-size:13px;color:#666;line-height:1.6"><span style="color:#2563eb;font-weight:700;flex-shrink:0">✓</span>1차 리포트 + 개선 방향 공유</li>
+      </ul>
+    </div>
+
+    <div style="padding:36px 28px;border-right:1px solid #e8e8e8;background:#fff;position:relative">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#16a34a,#4ade80)"></div>
+      <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:20px">
+        <span style="font-size:11px;font-weight:800;color:#16a34a;background:#f0fdf4;padding:4px 10px;border-radius:4px">DAY 8 – 30</span>
+      </div>
+      <h3 style="font-size:16px;font-weight:700;color:#111;margin-bottom:16px">구조 재설계</h3>
+      <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:10px">
+        <li style="display:flex;gap:8px;font-size:13px;color:#666;line-height:1.6"><span style="color:#16a34a;font-weight:700;flex-shrink:0">✓</span>저효율 키워드 정리</li>
+        <li style="display:flex;gap:8px;font-size:13px;color:#666;line-height:1.6"><span style="color:#16a34a;font-weight:700;flex-shrink:0">✓</span>구매 의도 키워드 재구성</li>
+        <li style="display:flex;gap:8px;font-size:13px;color:#666;line-height:1.6"><span style="color:#16a34a;font-weight:700;flex-shrink:0">✓</span>썸네일 A/B 테스트 시작</li>
+        <li style="display:flex;gap:8px;font-size:13px;color:#666;line-height:1.6"><span style="color:#16a34a;font-weight:700;flex-shrink:0">✓</span>입찰가 골든존 탐색</li>
+        <li style="display:flex;gap:8px;font-size:13px;color:#666;line-height:1.6"><span style="color:#16a34a;font-weight:700;flex-shrink:0">✓</span>주간 리포트 + 메신저 데일리 체크</li>
+      </ul>
+    </div>
+
+    <div style="padding:36px 28px;border-right:1px solid #e8e8e8;background:#fff;position:relative">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#9333ea,#c084fc)"></div>
+      <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:20px">
+        <span style="font-size:11px;font-weight:800;color:#9333ea;background:#faf5ff;padding:4px 10px;border-radius:4px">MONTH 2 – 3</span>
+      </div>
+      <h3 style="font-size:16px;font-weight:700;color:#111;margin-bottom:16px">최적화 & 스케일업</h3>
+      <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:10px">
+        <li style="display:flex;gap:8px;font-size:13px;color:#666;line-height:1.6"><span style="color:#9333ea;font-weight:700;flex-shrink:0">✓</span>고효율 캠페인 예산 집중</li>
+        <li style="display:flex;gap:8px;font-size:13px;color:#666;line-height:1.6"><span style="color:#9333ea;font-weight:700;flex-shrink:0">✓</span>네이버 시간대 입찰 정교화</li>
+        <li style="display:flex;gap:8px;font-size:13px;color:#666;line-height:1.6"><span style="color:#9333ea;font-weight:700;flex-shrink:0">✓</span>지그재그 기획전 선제 진입</li>
+        <li style="display:flex;gap:8px;font-size:13px;color:#666;line-height:1.6"><span style="color:#9333ea;font-weight:700;flex-shrink:0">✓</span>품질지수·CTR 동시 개선</li>
+        <li style="display:flex;gap:8px;font-size:13px;color:#666;line-height:1.6"><span style="color:#9333ea;font-weight:700;flex-shrink:0">✓</span>월간 성과 리뷰 + 다음달 계획</li>
+      </ul>
+    </div>
+
+    <div style="padding:36px 28px;background:#fff;position:relative">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#ea580c,#fb923c)"></div>
+      <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:20px">
+        <span style="font-size:11px;font-weight:800;color:#ea580c;background:#fff7ed;padding:4px 10px;border-radius:4px">ONGOING</span>
+      </div>
+      <h3 style="font-size:16px;font-weight:700;color:#111;margin-bottom:16px">유지 & 진화</h3>
+      <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:10px">
+        <li style="display:flex;gap:8px;font-size:13px;color:#666;line-height:1.6"><span style="color:#ea580c;font-weight:700;flex-shrink:0">✓</span>매주 입찰·소재 조정</li>
+        <li style="display:flex;gap:8px;font-size:13px;color:#666;line-height:1.6"><span style="color:#ea580c;font-weight:700;flex-shrink:0">✓</span>매월 트렌드 반영 교체</li>
+        <li style="display:flex;gap:8px;font-size:13px;color:#666;line-height:1.6"><span style="color:#ea580c;font-weight:700;flex-shrink:0">✓</span>시즌 캠페인 사전 기획</li>
+        <li style="display:flex;gap:8px;font-size:13px;color:#666;line-height:1.6"><span style="color:#ea580c;font-weight:700;flex-shrink:0">✓</span>정책 변경 즉시 대응</li>
+        <li style="display:flex;gap:8px;font-size:13px;color:#666;line-height:1.6"><span style="color:#ea580c;font-weight:700;flex-shrink:0">✓</span>장기 ROAS 안정화 관리</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══ FREE DIAGNOSIS FORM 섹션 ══ -->
+<section id="ms-form" style="padding:96px 6%;border-bottom:1px solid #e8e8e8;background:#fff">
+  <p class="sec-label">FREE DIAGNOSIS · 곽재훈 마케터</p>
+  <h2 class="sec-title">지금 운영 중인 광고,<br><span style="color:#2563eb">무료 진단 받아보세요.</span></h2>
+  <p style="font-size:18px;font-weight:600;color:#555;margin-bottom:8px;margin-top:-8px">결과가 나지 않는 광고에는 반드시 이유가 있습니다.</p>
+  <p class="sec-sub">현재 광고 계정의 성과·입찰·소재 구조를 분석해 문제점과 개선 포인트를 정리해 드립니다.<br>계약 부담 없음 · 광고비 외 청구 없음 · 3영업일 내 리포트 공유</p>
+
+  <!-- 진행 단계 -->
+  <div style="display:flex;align-items:center;gap:0;margin-bottom:48px;max-width:480px">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+      <div style="width:36px;height:36px;border-radius:50%;background:#2563eb;color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center">1</div>
+      <span style="font-size:11px;color:#2563eb;font-weight:700;white-space:nowrap">접수 확인</span>
+      <span style="font-size:10px;color:#aaa">당일</span>
+    </div>
+    <div style="flex:1;height:2px;background:#e0e7ff;margin-bottom:28px"></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+      <div style="width:36px;height:36px;border-radius:50%;background:#60a5fa;color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center">2</div>
+      <span style="font-size:11px;color:#2563eb;font-weight:700;white-space:nowrap">계정 분석</span>
+      <span style="font-size:10px;color:#aaa">1~3일</span>
+    </div>
+    <div style="flex:1;height:2px;background:#e0e7ff;margin-bottom:28px"></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+      <div style="width:36px;height:36px;border-radius:50%;background:#1d4ed8;color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center">3</div>
+      <span style="font-size:11px;color:#2563eb;font-weight:700;white-space:nowrap">리포트 전달</span>
+      <span style="font-size:10px;color:#aaa">3영업일 내</span>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start">
+
+    <!-- 폼 -->
+    <div style="background:#f8faff;border-radius:12px;padding:36px;border:1px solid #e0e7ff">
+      <h3 style="font-size:18px;font-weight:700;color:#111;margin-bottom:24px">무료 진단 신청</h3>
+
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div>
+          <label style="font-size:12px;font-weight:700;color:#555;display:block;margin-bottom:6px">성함 <span style="color:#2563eb">*</span></label>
+          <input type="text" placeholder="홍길동" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:6px;font-size:14px;outline:none;font-family:inherit;color:#111;background:#fff" onfocus="this.style.borderColor='#2563eb'" onblur="this.style.borderColor='#d1d5db'">
+        </div>
+        <div>
+          <label style="font-size:12px;font-weight:700;color:#555;display:block;margin-bottom:6px">연락처 <span style="color:#2563eb">*</span></label>
+          <input type="tel" placeholder="010-0000-0000" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:6px;font-size:14px;outline:none;font-family:inherit;color:#111;background:#fff" onfocus="this.style.borderColor='#2563eb'" onblur="this.style.borderColor='#d1d5db'">
+        </div>
+        <div>
+          <label style="font-size:12px;font-weight:700;color:#555;display:block;margin-bottom:6px">업체명 / 브랜드명 <span style="color:#2563eb">*</span></label>
+          <input type="text" placeholder="브랜드명을 입력해주세요" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:6px;font-size:14px;outline:none;font-family:inherit;color:#111;background:#fff" onfocus="this.style.borderColor='#2563eb'" onblur="this.style.borderColor='#d1d5db'">
+        </div>
+        <div>
+          <label style="font-size:12px;font-weight:700;color:#555;display:block;margin-bottom:8px">운영 중인 매체</label>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <label style="display:flex;align-items:center;gap:6px;font-size:13px;color:#555;cursor:pointer"><input type="checkbox" style="accent-color:#2563eb"> 네이버</label>
+            <label style="display:flex;align-items:center;gap:6px;font-size:13px;color:#555;cursor:pointer"><input type="checkbox" style="accent-color:#2563eb"> 지그재그</label>
+            <label style="display:flex;align-items:center;gap:6px;font-size:13px;color:#555;cursor:pointer"><input type="checkbox" style="accent-color:#2563eb"> 쿠팡</label>
+            <label style="display:flex;align-items:center;gap:6px;font-size:13px;color:#555;cursor:pointer"><input type="checkbox" style="accent-color:#2563eb"> 에이블리</label>
+            <label style="display:flex;align-items:center;gap:6px;font-size:13px;color:#555;cursor:pointer"><input type="checkbox" style="accent-color:#2563eb"> 기타</label>
+          </div>
+        </div>
+        <div>
+          <label style="font-size:12px;font-weight:700;color:#555;display:block;margin-bottom:6px">월 광고비</label>
+          <select style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:6px;font-size:14px;outline:none;font-family:inherit;color:#555;background:#fff;cursor:pointer" onfocus="this.style.borderColor='#2563eb'" onblur="this.style.borderColor='#d1d5db'">
+            <option value="">선택하지 않음</option>
+            <option>300만원 미만</option>
+            <option>300 ~ 500만원</option>
+            <option>500 ~ 1,000만원</option>
+            <option>1,000 ~ 3,000만원</option>
+            <option>3,000만원 이상</option>
+          </select>
+        </div>
+        <div>
+          <label style="font-size:12px;font-weight:700;color:#555;display:block;margin-bottom:6px">고민 / 문의 내용</label>
+          <textarea placeholder="현재 광고 상황이나 궁금한 점을 자유롭게 적어주세요" rows="4" style="width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:6px;font-size:14px;outline:none;font-family:inherit;color:#111;background:#fff;resize:vertical" onfocus="this.style.borderColor='#2563eb'" onblur="this.style.borderColor='#d1d5db'"></textarea>
+        </div>
+        <button onclick="submitDiagnosis(this)" style="width:100%;padding:14px;background:#2563eb;color:#fff;font-size:15px;font-weight:700;border:none;border-radius:6px;cursor:pointer;font-family:inherit;transition:background .2s" onmouseover="this.style.background='#1d4ed8'" onmouseout="this.style.background='#2563eb'">
+          무료 진단 신청하기 →
+        </button>
+        <p style="font-size:11px;color:#aaa;text-align:center;line-height:1.6">* 입력하신 정보는 진단 상담 목적 외에는 사용되지 않습니다.</p>
+      </div>
+
+      <!-- 완료 메시지 -->
+      <div id="diagnosis-success" style="display:none;text-align:center;padding:32px 0">
+        <div style="font-size:40px;margin-bottom:16px">✅</div>
+        <h3 style="font-size:18px;font-weight:700;color:#111;margin-bottom:8px">접수가 완료되었습니다</h3>
+        <p style="font-size:14px;color:#777;line-height:1.7">3영업일 이내에 곽재훈 마케터가<br>직접 연락드리겠습니다.</p>
+      </div>
+    </div>
+
+    <!-- 우측 안내 -->
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div style="background:#f0fdf4;border-radius:10px;padding:24px;border:1px solid #bbf7d0">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <span style="font-size:20px">📋</span>
+          <p style="font-size:14px;font-weight:700;color:#111">7일 내 1차 진단 리포트</p>
+        </div>
+        <p style="font-size:13px;color:#666;line-height:1.7">계정 인계 후 7일 안에 구조·입찰·소재 분석 리포트를 드립니다.</p>
+      </div>
+      <div style="background:#eff6ff;border-radius:10px;padding:24px;border:1px solid #bfdbfe">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <span style="font-size:20px">📊</span>
+          <p style="font-size:14px;font-weight:700;color:#111">매주 운영 리뷰</p>
+        </div>
+        <p style="font-size:13px;color:#666;line-height:1.7">주 1회 정기 리뷰로 무엇이 좋아지고 무엇이 막혔는지 직접 설명드립니다.</p>
+      </div>
+      <div style="background:#fff7ed;border-radius:10px;padding:24px;border:1px solid #fed7aa">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <span style="font-size:20px">💰</span>
+          <p style="font-size:14px;font-weight:700;color:#111">광고비 외 청구 없음</p>
+        </div>
+        <p style="font-size:13px;color:#666;line-height:1.7">공식 대행 매체(네이버·지그재그)는 관리비·위약금이 모두 0원입니다.</p>
+      </div>
+      <div style="background:#111;border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:14px">
+        <p style="font-size:13px;font-weight:700;color:#fff">또는 바로 연락하기</p>
+        <a href="https://open.kakao.com/o/szU1mmai" target="_blank"
+           style="display:flex;align-items:center;justify-content:center;gap:8px;padding:12px;background:#FEE500;color:#000;font-size:14px;font-weight:700;text-decoration:none;border-radius:6px">
+          💬 카카오 1:1 상담
+        </a>
+        <!-- 카카오 QR + 이메일 나란히 -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div style="background:#1a1a1a;border-radius:8px;padding:16px;display:flex;align-items:center;gap:14px;border:1px solid #2a2a2a">
+            <img src="kakao_qr.png" alt="카카오 오픈채팅 QR" style="width:64px;height:64px;border-radius:6px;flex-shrink:0">
+            <div>
+              <p style="font-size:12px;font-weight:700;color:#fff;margin-bottom:4px">카카오 오픈채팅 QR</p>
+              <p style="font-size:11px;color:#777;line-height:1.6">스마트폰 카메라로 스캔하면<br>바로 채팅방으로 연결됩니다</p>
+            </div>
+          </div>
+          <a href="mailto:jhkwak11232@naver.com"
+             style="display:flex;align-items:center;justify-content:center;gap:8px;padding:12px;background:#333;color:#fff;font-size:14px;font-weight:700;text-decoration:none;border-radius:6px;border:1px solid #555">
+            ✉️ jhkwak11232@naver.com
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="ms-contact" style="padding:64px 6% 0;background:#0f0f0f">
+
+  <!-- 푸터 본문 -->
+  <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid #222">
+
+    <!-- 좌측: 브랜드 -->
+    <div>
+      <p style="font-size:15px;font-weight:900;color:#fff;letter-spacing:0.06em;margin-bottom:12px">
+        <span style="color:#60a5fa">YEJI</span> SOLUTION
+      </p>
+      <p style="font-size:13px;color:#666;line-height:1.9;margin-bottom:20px">
+        네이버·지그재그 광고 전문 마케터.<br>
+        8년차 1:1 전담 운영으로 성과를 만듭니다.
+      </p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <span style="font-size:11px;padding:4px 10px;border:1px solid #2a2a2a;color:#555;border-radius:100px">네이버 프리미어 파트너</span>
+        <span style="font-size:11px;padding:4px 10px;border:1px solid #2a2a2a;color:#555;border-radius:100px">지그재그 프리미어 에이전시</span>
+        <span style="font-size:11px;padding:4px 10px;border:1px solid #2a2a2a;color:#555;border-radius:100px">검색광고마케터 1급</span>
+        <span style="font-size:11px;padding:4px 10px;border:1px solid #2a2a2a;color:#555;border-radius:100px">구글 GAIQ</span>
+      </div>
+    </div>
+
+    <!-- 중앙: 바로가기 -->
+    <div>
+      <p style="font-size:11px;font-weight:700;color:#444;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px">바로가기</p>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <a href="#ms-results" style="font-size:13px;color:#666;text-decoration:none;transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#666'">성과 사례</a>
+        <a href="#ms-why" style="font-size:13px;color:#666;text-decoration:none;transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#666'">왜 다른가</a>
+        <a href="#ms-strategy" style="font-size:13px;color:#666;text-decoration:none;transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#666'">운영 전략</a>
+        <a href="#ms-cases" style="font-size:13px;color:#666;text-decoration:none;transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#666'">진단 사례</a>
+        <a href="#ms-how" style="font-size:13px;color:#666;text-decoration:none;transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#666'">진행 순서</a>
+      </div>
+    </div>
+
+    <!-- 우측: 상담 신청 -->
+    <div>
+      <p style="font-size:11px;font-weight:700;color:#444;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px">상담 신청</p>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <a href="#ms-form" style="font-size:13px;color:#666;text-decoration:none;transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#666'">무료 진단 신청</a>
+        <a href="https://open.kakao.com/o/szU1mmai" target="_blank" style="font-size:13px;color:#666;text-decoration:none;transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#666'">카카오 오픈채팅</a>
+        <a href="mailto:jhkwak11232@naver.com" style="font-size:13px;color:#666;text-decoration:none;transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#666'">이메일 문의</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 카피라이트 -->
+  <div style="display:flex;justify-content:space-between;align-items:center;padding:20px 0;flex-wrap:wrap;gap:12px">
+    <p style="font-size:12px;color:#444">© 2026 곽재훈 · YEJI SOLUTION</p>
+    <p style="font-size:12px;color:#444">광고 문의는 카카오 오픈채팅 또는 무료 진단 신청 폼을 이용해 주세요.</p>
+  </div>
+
+</section>
+
+
+
+
+
+
+<!-- 우측 하단 플로팅 버튼 -->
+<div style="position:fixed;bottom:32px;right:28px;z-index:9999;display:flex;flex-direction:column;align-items:center;gap:10px">
+
+  <!-- 맨 위로 화살표 -->
+  <button id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    style="width:48px;height:48px;border-radius:50%;background:#fff;border:1px solid #ddd;box-shadow:0 2px 12px rgba(0,0,0,0.12);cursor:pointer;display:none;align-items:center;justify-content:center;font-size:18px;transition:all 0.2s"
+    onmouseover="this.style.boxShadow='0 4px 20px rgba(0,0,0,0.18)'" onmouseout="this.style.boxShadow='0 2px 12px rgba(0,0,0,0.12)'">
+    ↑
+  </button>
+
+  <!-- 카톡 상담 -->
+  <a href="https://open.kakao.com/o/szU1mmai" target="_blank"
+    style="display:inline-flex;align-items:center;gap:8px;padding:13px 20px;background:#FEE500;color:#000;font-size:14px;font-weight:800;text-decoration:none;border-radius:100px;box-shadow:0 4px 16px rgba(0,0,0,0.15);transition:all 0.2s;white-space:nowrap"
+    onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 24px rgba(0,0,0,0.2)'"
+    onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.15)'">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><ellipse cx="9" cy="8.2" rx="7.5" ry="6.2" fill="#000"/><path d="M4 13.5c.3-1.2.7-2.4.5-3.2" stroke="#FEE500" stroke-width="1.2" stroke-linecap="round"/></svg>
+    카톡 상담
+  </a>
+</div>
+
+<script>
+  var scrollBtn = document.getElementById('scrollTopBtn');
+  window.addEventListener('scroll', function() {
+    scrollBtn.style.display = window.scrollY > 300 ? 'flex' : 'none';
+  });
+</script>
+</body>
+</html>
