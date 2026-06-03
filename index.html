@@ -310,9 +310,10 @@ section{padding:96px 6%;border-bottom:1px solid var(--border)}
   .hero-img{height:50vw;min-height:260px}
   .yeji-intro{grid-template-columns:1fr}
   .yeji-right{border-left:none;border-top:1px solid var(--border)}
-  .achieve-grid{grid-template-columns:1fr 1fr}
+  .achieve-grid{grid-template-columns:1fr}
   .achieve-card:nth-child(2n){border-right:none}
-  .achieve-card:nth-child(3n){border-right:1px solid var(--border)}
+  .achieve-card:nth-child(3n){border-right:none}
+  .achieve-card{border-right:none !important;border-bottom:1px solid var(--border) !important}
   .awards-photo-grid{grid-template-columns:1fr 1fr}
   .award-photo-item:nth-child(2n){border-right:none}
   .cert-grid{grid-template-columns:1fr}
@@ -324,6 +325,55 @@ section{padding:96px 6%;border-bottom:1px solid var(--border)}
 }
 @media(max-width:600px){
   .yt-channel-grid{grid-template-columns:repeat(2,1fr) !important}
+  /* 태그 박스 모바일 축소 */
+  .hero-tag{
+    font-size:10px !important;
+    padding:4px 9px !important;
+    letter-spacing:0.02em !important;
+  }
+  .hero-tags{gap:6px !important;margin-bottom:28px !important}
+  /* work-metric 라벨 고정 너비 */
+  .work-metric{align-items:flex-start !important;gap:12px}
+  .work-metric-label{flex-shrink:0;width:64px !important;padding-top:1px}
+  .work-metric-val{flex:1;text-align:left !important;word-break:keep-all}
+
+  /* 수상 사진 4컬럼 → 2컬럼 */
+  .awards-photo-grid{grid-template-columns:repeat(2,1fr) !important}
+  .award-photo-item{border-right:none !important}
+  .award-photo-item:nth-child(odd){border-right:1px solid var(--border) !important}
+  .award-photo-item img{aspect-ratio:1/1 !important}
+
+  /* 추가 수상 4컬럼 → 2컬럼 인라인 스타일 override */
+  [style*="grid-template-columns:repeat(4,1fr)"]{
+    grid-template-columns:repeat(2,1fr) !important;
+  }
+  [style*="grid-template-columns:repeat(4,1fr)"] > div{
+    border-right:none !important;
+  }
+  [style*="grid-template-columns:repeat(4,1fr)"] > div:nth-child(odd){
+    border-right:1px solid var(--border) !important;
+  }
+  [style*="grid-template-columns:repeat(4,1fr)"] img{
+    aspect-ratio:1/1 !important;
+  }
+
+  /* yeji-award-img 이미지 높이 축소 */
+  .yeji-award-img img{height:180px !important}
+
+  /* 추가 수상 3컬럼 인라인 → 1컬럼 */
+  [style*="grid-template-columns:1fr 1fr 1fr"]{
+    grid-template-columns:1fr !important;
+  }
+  [style*="grid-template-columns:1fr 1fr 1fr"] > div{
+    border-right:none !important;
+    border-bottom:1px solid var(--border) !important;
+  }
+  [style*="grid-template-columns:1fr 1fr 1fr"] img{
+    height:260px !important;
+  }
+
+  /* yeji-right 2컬럼 유지하되 이미지 축소 */
+  .yeji-right{border-left:none;border-top:1px solid var(--border)}
 }
 @media(max-width:380px){
   .yt-channel-grid{grid-template-columns:1fr 1fr !important}
