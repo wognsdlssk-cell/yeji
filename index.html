@@ -416,6 +416,114 @@ a[href*="youtube"]:hover { transform: translateY(-4px); box-shadow: 0 12px 28px 
 ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: #999; }
 
+
+/* ══ 모바일 반응형 ══ */
+@media (max-width: 768px) {
+
+  /* 전체 섹션 패딩 축소 */
+  section { padding: 60px 5% !important; }
+
+  /* STRATEGY - 네이버/지그재그 1컬럼으로 */
+  #ms-strategy > div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* STRATEGY 카드 헤더 텍스트 줄바꿈 방지 */
+  #ms-strategy [style*="display:flex;align-items:center;gap:12px"] {
+    flex-wrap: nowrap !important;
+  }
+
+  /* STRATEGY 내부 원칙 카드 제목 세로쓰기 방지 */
+  #ms-strategy p[style*="font-size:13px;font-weight:700"] {
+    word-break: keep-all !important;
+    white-space: normal !important;
+  }
+
+  /* HOW I WORK - 4컬럼 → 1컬럼 */
+  #ms-how > div[style*="grid-template-columns:repeat(auto-fit"] {
+    grid-template-columns: 1fr !important;
+    border-radius: 12px !important;
+  }
+  #ms-how > div > div[style*="border-right"] {
+    border-right: none !important;
+    border-bottom: 1px solid #e8e8e8 !important;
+  }
+  #ms-how > div > div:last-child {
+    border-bottom: none !important;
+  }
+
+  /* FREE DIAGNOSIS FORM - 2컬럼 → 1컬럼 */
+  #ms-form > div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* 진행 단계 텍스트 크기 */
+  #ms-form > div[style*="display:flex;align-items:center;gap:0"] {
+    max-width: 100% !important;
+  }
+
+  /* QR + 이메일 나란히 → 세로로 */
+  #ms-form div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* 푸터 3컬럼 → 1컬럼 */
+  #ms-contact > div[style*="grid-template-columns:2fr 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  /* 성과 카드 그리드 1컬럼 */
+  #ms-results > div[style*="grid-template-columns:repeat(auto-fit,minmax(300px"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* WHY ME 카드 1컬럼 */
+  #ms-why > div[style*="grid-template-columns:repeat(auto-fit"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* CASES 카드 1컬럼 */
+  #ms-cases > div[style*="grid-template-columns:repeat(auto-fit"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ON:AIR 교육 섹션 - 모바일에서 텍스트 위, 이미지 아래 */
+  .onair-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .onair-text {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border) !important;
+    order: 1;
+  }
+  .onair-img {
+    order: 2;
+  }
+  .onair-img img {
+    min-height: 220px !important;
+    max-height: 320px !important;
+    object-fit: cover !important;
+  }
+
+  /* sec-title 폰트 크기 */
+  .sec-title { font-size: 22px !important; }
+
+  /* STRATEGY 원칙 카드 내 padding-left 제거 (번호 뱃지 겹침 방지) */
+  #ms-strategy [style*="padding-left:34px"] {
+    padding-left: 0 !important;
+    margin-top: 8px !important;
+  }
+  #ms-strategy [style*="display:flex;align-items:center;gap:10px;margin-bottom:8px"] {
+    align-items: flex-start !important;
+  }
+
+  /* HOW I WORK 타임라인 카드 border-right 제거 */
+  #ms-how [style*="border-right:1px solid #e8e8e8;background:#fff;position:relative"] {
+    border-right: none !important;
+    border-bottom: 1px solid #e8e8e8 !important;
+  }
+}
 </style>
 </head>
 <body>
@@ -651,13 +759,13 @@ a[href*="youtube"]:hover { transform: translateY(-4px); box-shadow: 0 12px 28px 
   </div>
 
   <!-- ON:AIR 강의 -->
-  <div style="margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border)">
-    <div style="padding:36px 36px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--border)">
+  <div style="margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border)" class="onair-grid">
+    <div style="padding:36px 36px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--border)" class="onair-text">
       <p style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px">CONTENT · EDUCATION</p>
       <h3 style="font-family:'Noto Serif KR',serif;font-size:20px;font-weight:700;color:var(--black);margin-bottom:12px;line-height:1.4">사내 교육 콘텐츠 제작<br>및 강의 진행</h3>
       <p style="font-size:13px;color:var(--mid);line-height:1.8;word-break:keep-all">영업부 셀장 및 주요 TF팀 팀장으로 참여.</p>
     </div>
-    <div style="overflow:hidden">
+    <div style="overflow:hidden" class="onair-img">
       <img src="onair.png" alt="ON:AIR 강의 마케터의 역할" style="width:100%;height:100%;object-fit:cover;min-height:300px;display:block">
     </div>
   </div>
