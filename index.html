@@ -2060,6 +2060,73 @@ a[href*="youtube"]:hover { transform: translateY(-4px); box-shadow: 0 12px 28px 
   window.addEventListener('scroll', function() {
     scrollBtn.style.display = window.scrollY > 300 ? 'flex' : 'none';
   });
+
+  async function submitDiagnosis(btn) {
+    // ── 폼 컨테이너 ──
+    var formBox = btn.closest('div[style*="flex-direction:column"]');
+
+    // ── 필드 수집 ──
+    var inputs   = formBox.querySelectorAll('input[type="text"], input[type="tel"]');
+    var name     = inputs[0] ? inputs[0].value.trim() : '';
+    var phone    = inputs[1] ? inputs[1].value.trim() : '';
+    var brand    = inputs[2] ? inputs[2].value.trim() : '';
+
+    var channels = Array.from(formBox.querySelectorAll('input[type="checkbox"]:checked'))
+                       .map(function(c){ return c.parentElement.textContent.trim(); })
+                       .join(', ') || '없음';
+
+    var select   = formBox.querySelector('select');
+    var budget   = select ? select.value || '미선택' : '미선택';
+
+    var textarea = formBox.querySelector('textarea');
+    var message  = textarea ? textarea.value.trim() : '';
+
+    // ── 필수값 검사 ──
+    if (!name)  { alert('성함을 입력해주세요.'); return; }
+    if (!phone) { alert('연락처를 입력해주세요.'); return; }
+    if (!brand) { alert('업체명 / 브랜드명을 입력해주세요.'); return; }
+
+    // ── 버튼 로딩 상태 ──
+    btn.disabled = true;
+    btn.textContent = '전송 중…';
+    btn.style.background = '#93c5fd';
+
+    // ── Web3Forms 전송 ──
+    try {
+      var res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key: '7e053a09-94e5-45b4-aaa8-ca7aa0d96ae8',
+          subject: '[무료 진단 신청] ' + brand + ' · ' + name,
+          from_name: '곽재훈 마케터 웹사이트',
+          성함: name,
+          연락처: phone,
+          '업체명/브랜드명': brand,
+          '운영 중인 매체': channels,
+          '월 광고비': budget,
+          '고민/문의 내용': message || '(내용 없음)'
+        })
+      });
+
+      var data = await res.json();
+
+      if (data.success) {
+        // 폼 숨기고 완료 메시지 표시
+        var items = formBox.querySelectorAll(':scope > div');
+        items.forEach(function(el){ el.style.display = 'none'; });
+        var successEl = document.getElementById('diagnosis-success');
+        if (successEl) successEl.style.display = 'block';
+      } else {
+        throw new Error(data.message || '전송 실패');
+      }
+    } catch(e) {
+      alert('전송 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.\n(' + e.message + ')');
+      btn.disabled = false;
+      btn.textContent = '무료 진단 신청하기 →';
+      btn.style.background = '#2563eb';
+    }
+  }
 </script>
 </body>
 </html>
