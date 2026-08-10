@@ -455,6 +455,16 @@ section:nth-of-type(even) { background: var(--bg2); }
 a[href*="youtube"] { transition: transform .2s, box-shadow .2s; }
 a[href*="youtube"]:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,0.08); }
 
+/* 유튜브 채널 2x2 정사각형 배치 */
+.yt-channel-grid > div{
+  aspect-ratio:1 / 1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:20px !important;
+}
+
 /* hero-stats 숫자 컬러 */
 .hstat-num { color: #2563eb; }
 
@@ -925,7 +935,7 @@ a[href*="youtube"]:hover { transform: translateY(-4px); box-shadow: 0 12px 28px 
       <p style="font-size:14px;color:var(--mid);letter-spacing:0.02em">구독자 1만 + 평균 조회수 1만 채널 직접 운영중</p>
     </div>
 
-    <div class="yt-channel-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;max-width:960px;margin:0 auto;border:1px solid var(--border);background:var(--border)">
+    <div class="yt-channel-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:1px;max-width:640px;margin:0 auto;border:1px solid var(--border);background:var(--border)">
 
       <div style="background:var(--bg);padding:36px 20px 28px;text-align:center">
         <div style="width:72px;height:72px;border-radius:50%;background:var(--bg3);margin:0 auto 20px;overflow:hidden;border:1px solid var(--border)">
@@ -933,14 +943,6 @@ a[href*="youtube"]:hover { transform: translateY(-4px); box-shadow: 0 12px 28px 
         </div>
         <p style="font-size:15px;font-weight:700;color:var(--black);margin-bottom:10px;letter-spacing:-0.01em">트렌드포스트</p>
         <a href="https://www.youtube.com/channel/UCQsyXlt09Buw6KWcYLLNFmw" target="_blank" style="font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:0.02em">YouTube 채널 바로가기 →</a>
-      </div>
-
-      <div style="background:var(--bg);padding:36px 20px 28px;text-align:center">
-        <div style="width:72px;height:72px;border-radius:50%;background:var(--bg3);margin:0 auto 20px;overflow:hidden;border:1px solid var(--border)">
-          <img src="더리스트_로고.png" alt="더리스트" style="width:100%;height:100%;object-fit:cover">
-        </div>
-        <p style="font-size:15px;font-weight:700;color:var(--black);margin-bottom:10px;letter-spacing:-0.01em">더리스트</p>
-        <a href="https://www.youtube.com/channel/UC6UhdBimC-heA_J7_5JAiyQ" target="_blank" style="font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:0.02em">YouTube 채널 바로가기 →</a>
       </div>
 
       <div style="background:var(--bg);padding:36px 20px 28px;text-align:center">
@@ -957,14 +959,6 @@ a[href*="youtube"]:hover { transform: translateY(-4px); box-shadow: 0 12px 28px 
         </div>
         <p style="font-size:15px;font-weight:700;color:var(--black);margin-bottom:10px;letter-spacing:-0.01em">데일리플로우</p>
         <a href="https://www.youtube.com/channel/UCQQ-EBvtlrdDnPwrSWmAL7g" target="_blank" style="font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:0.02em">YouTube 채널 바로가기 →</a>
-      </div>
-
-      <div style="background:var(--bg);padding:36px 20px 28px;text-align:center">
-        <div style="width:72px;height:72px;border-radius:50%;background:var(--bg3);margin:0 auto 20px;overflow:hidden;border:1px solid var(--border)">
-          <img src="하이프픽_로고.png" alt="하이프픽" style="width:100%;height:100%;object-fit:cover">
-        </div>
-        <p style="font-size:15px;font-weight:700;color:var(--black);margin-bottom:10px;letter-spacing:-0.01em">하이프픽</p>
-        <a href="https://www.youtube.com/channel/UCtkUT3heJRWJVFemmK-XrZQ" target="_blank" style="font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:0.02em">YouTube 채널 바로가기 →</a>
       </div>
 
       <div style="background:var(--bg);padding:36px 20px 28px;text-align:center">
