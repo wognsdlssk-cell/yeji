@@ -80,6 +80,8 @@ nav{
   max-width:420px;
 }
 .hero-desc strong{color:var(--black);font-weight:700}
+.desc-mo{display:none}
+@media(max-width:600px){.desc-pc{display:none}.desc-mo{display:inline}}
 .hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px}
 .hero-tag{
   font-size:11px;padding:5px 13px;
@@ -620,9 +622,19 @@ a[href*="youtube"]:hover { transform: translateY(-4px); box-shadow: 0 12px 28px 
     <h1 class="hero-name">곽재훈</h1>
     <p class="hero-title">퍼포먼스 마케터</p>
     <p class="hero-desc">
+      <span class="desc-pc">
       국내 탑 광고 대행사 <strong>예지솔루션</strong>에서 8년간<br>
       네이버·카카오·쿠팡 및 각종 버티컬 매체를 직접 운영하며<br>
-      <strong>연간 광고집행액 40억+ 압도적 1위</strong> 및 영업 성과 최상위권을 유지했습니다.<br><br>
+      <strong>연간 광고집행액 40억+ 누적 100억+ 매출 순위 압도적 1위</strong><br>
+      및 영업 성과 최상위권을 유지했습니다.<br><br>
+      </span>
+      <span class="desc-mo">
+      국내 탑 광고 대행사 <strong>예지솔루션</strong>에서 8년간<br>
+      네이버·카카오 및 버티컬 매체를 직접 운영하며<br>
+      <strong>연간 광고집행액 40억+ 누적 100억+</strong><br>
+      <strong>매출 순위 압도적 1위</strong> 및 영업 성과<br>
+      최상위권을 유지했습니다.<br><br>
+      </span>
       숫자로 증명된 마케터입니다.
     </p>
     <div class="hero-tags">
@@ -781,7 +793,7 @@ a[href*="youtube"]:hover { transform: translateY(-4px); box-shadow: 0 12px 28px 
     </div>
     <div class="award-photo-item">
       <img src="awards_ceremony.jpg" alt="2019 FL.Y Awards 라이징 스타">
-      <div class="award-photo-caption">2019 FL.Y Awards 라이징 스타 수상</div>
+      <div class="award-photo-caption">FL.Y Awards 라이징 스타 수상</div>
     </div>
     <div class="award-photo-item">
       <img src="award_excellent.jpg" alt="Excellent Staff 2022">
@@ -789,7 +801,7 @@ a[href*="youtube"]:hover { transform: translateY(-4px); box-shadow: 0 12px 28px 
     </div>
     <div class="award-photo-item">
       <img src="award_hocance.jpg" alt="HO캉스 프로모션 성과우수자" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block">
-      <div class="award-photo-caption">Excellent Staff 2022 수상</div>
+      <div class="award-photo-caption">Excellent Staff 수상</div>
     </div>
   </div>
   <!-- 추가 수상 사진 갤러리 -->
